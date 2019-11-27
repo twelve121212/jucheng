@@ -5,29 +5,33 @@ import My from "../views/My"
 // import Login from "../views/Login"
 import React from "react"
 export default {
-    className:"App-link",
+    className:"footer_one",
     activeClassName:"App-active",
     config: [
         {
             path:"/",
             exact:true,
             linkName:"首页",
-            component:Home
+            component:Home,
+            className:"iconfont icon-chengzi"
         },
         {
             path:"/theater",
             linkName:"剧院",
-            component:Theater
+            component:Theater,
+            className:"iconfont icon-gejuyuan"
         },
         {
             path:"/ticketBag",
             linkName:"票夹",
-            component:TicketBag
+            component:TicketBag,
+            className:"iconfont icon-piaojia"
         },
         {
             path:"/my",
             linkName:"我的",
-            component:My
+            component:My,
+            className:"iconfont icon-wode"
         },
         // {
         //     path:"/login",

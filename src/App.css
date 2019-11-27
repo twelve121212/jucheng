@@ -1,10 +1,42 @@
+#root{
+  height:100%;
+}
 .App {
   text-align: center;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
 }
-.App-link {
-  color: #09d3ac;
-  padding:5px;
+.App .certain{
+  flex:1;
+  background:red;
 }
+.App .nav{
+  height:98.06px;
+  width:100%;
+  border-top:1px solid #ccc;
+  background:#fefefe;
+}
+.App .footer{
+  display: flex;
+  height:100%;
+  width:100%;
+}
+.App .footer .footer_one{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.App .footer .footer_one i{
+  color:#232323;
+  font-size:50.02px;
+}
+.App .footer .footer_one p{
+  font-size:22.4px;
+}
+
 .App-active{
   color:red;
 }
