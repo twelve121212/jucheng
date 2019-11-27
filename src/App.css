@@ -19,4 +19,8 @@
 
 .App-link {
   color: #09d3ac;
+  padding:5px;
+}
+.App-active{
+  color:red;
 }
