@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy":"https://api.juooo.com",
+  "proxy": "https://api.juooo.com",
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import "../assets/css/reset.css"
 import '../assets/iconfont/iconfont.css';
 import "../assets/css/home.css"
@@ -10,7 +11,7 @@ export default class Home extends React.Component {
         return (
             <div id="home">
                 {/* 网页头部 */}
-                <div class="header">
+                <div className="header">
                     <div className="position">
                         <i className="iconfont icon-location"></i>全国
                     </div>
@@ -31,26 +32,31 @@ export default class Home extends React.Component {
                 </div>
                 {/* 图形中部导航 */}
                 <div className="picNav">
-                    <div className="picnav vocol">
+                    <Link className="picnav vocol" to={"/showtype/1"}>
                         <i className="iconfont icon-huatongKTVmaikefengchanggemianxing"></i>
                         <div>演唱会</div>
-                    </div>
-                    <div className="picnav music">
+                    </Link>
+
+                    <Link className="picnav music" to={"/showtype/2"}>
                         <i className="iconfont icon-yinfu"></i>
                         <div>音乐剧</div>
-                    </div>
-                    <div className="picnav stage">
+                    </Link>
+
+                    <Link className="picnav stage" to={"/showtype/3"}>
                         <i className="iconfont icon-xiaoji"></i>
                         <div>舞台剧</div>
-                    </div>
-                    <div className="picnav children">
+                    </Link>
+
+                    <Link className="picnav children" to={"/showtype/4"}>
                         <i className="iconfont icon-baobao"></i>
                         <div>儿童剧</div>
-                    </div>
-                    <div className="picnav concert">
+                    </Link>
+
+                    <Link className="picnav concert" to={"/showtype/5"}>
                         <i className="iconfont icon-gangqin"></i>
                         <div>音乐会</div>
-                    </div>
+                    </Link>
+
                     <div className="picnav happy">
                         <i className="iconfont icon-qiabao"></i>
                         <div>欢聚橙卡</div>

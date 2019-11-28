@@ -1,26 +1,24 @@
 import React from 'react';
+import router from './router';
 import './App.css';
 import './assets/iconfont/iconfont.css';
 import {
-  BrowserRouter as Router,
-  NavLink,
   Route,
   Switch,
 } from "react-router-dom";
-import MyNavLink from "./components/MyNavLink";
-import MyRoute from "./components/MyRoute";
+import HaveNav from "./views/HaveNav";
+
 function App() {
   return (
     <div className="App">
-      <div className="certain">
-           <MyRoute></MyRoute>
-      </div>
-
-      <footer className="nav">
-
-          <MyNavLink></MyNavLink>
-      </footer>
-      
+      <Switch>
+        {
+            router.config.map(v=>(
+              v.linkName?null:<Route key={v.path} path={v.path} component={v.component}></Route>
+            )) 
+        }
+        <Route key={'/'} path={'/'} component={HaveNav}></Route>
+      </Switch>
     </div>
   );
 }
