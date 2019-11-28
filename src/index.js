@@ -7,8 +7,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'lib-flexible'
+import axios from "axios";
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+import{
+    Provider
+}from "react-redux"
+import store from "./store";
+React.Component.prototype.$axios=axios;
+ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

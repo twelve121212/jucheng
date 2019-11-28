@@ -60,9 +60,9 @@
     #home .picNav .picnav > div {
       font-size: 18px; }
 #home .priority {
-  width: 662px;
+  width: 682px;
   border: 2px solid rgba(214, 163, 113, 0.3);
-  margin: 40px;
+  margin: 30px;
   padding: 28px; }
   #home .priority .priority-header {
     border-bottom: 2px dashed rgba(214, 163, 113, 0.3);
@@ -114,5 +114,235 @@
         border: 2px solid #ff6743;
         border-radius: 30px;
         line-height: 50px; }
+#home .hotShow {
+  margin-bottom: 60px; }
+  #home .hotShow .hotShow-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    padding: 30px 0 50px 30px; }
+    #home .hotShow .hotShow-title span {
+      font-weight: 800;
+      font-size: 38px; }
+    #home .hotShow .hotShow-title i {
+      color: #888;
+      margin-right: 30px; }
+  #home .hotShow .hotShow-center {
+    width: 100%;
+    padding-left: 30px;
+    display: flex;
+    overflow: hidden; }
+    #home .hotShow .hotShow-center .hotShow-context {
+      margin-right: 15px; }
+      #home .hotShow .hotShow-center .hotShow-context img {
+        width: 212px;
+        border-radius: 5px; }
+      #home .hotShow .hotShow-center .hotShow-context .hotShow-headline {
+        text-align: left;
+        font-weight: 700;
+        font-size: 30px;
+        margin-top: 15px;
+        line-height: 39px;
+        color: #232323; }
+#home .tourShow {
+  background-color: #f5f5f5;
+  padding-bottom: 50px; }
+  #home .tourShow .tourShow-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    padding: 40px 0 40px 30px; }
+    #home .tourShow .tourShow-title span {
+      font-weight: 800;
+      font-size: 38px; }
+    #home .tourShow .tourShow-title i {
+      color: #888;
+      margin-right: 30px; }
+  #home .tourShow .tourShow-center {
+    width: 100%;
+    padding-left: 30px;
+    display: flex;
+    overflow: hidden; }
+    #home .tourShow .tourShow-center .tourShow-context {
+      margin-right: 36px; }
+      #home .tourShow .tourShow-center .tourShow-context img {
+        width: 498px;
+        border-radius: 5px; }
+      #home .tourShow .tourShow-center .tourShow-context .tourShow-headline {
+        text-align: left;
+        font-weight: 700;
+        font-size: 30px;
+        margin-top: 15px;
+        line-height: 39px;
+        color: #232323; }
+      #home .tourShow .tourShow-center .tourShow-context span {
+        font-size: 26px;
+        color: #888;
+        text-align: center;
+        line-height: 36px; }
+#home .memberShip {
+  background-color: #f5f5f5;
+  padding-bottom: 60px; }
+  #home .memberShip .memberShip-title {
+    background-image: url(../Y_images/vip_bg.cda230e.png);
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    color: #f0d1b0; }
+    #home .memberShip .memberShip-title .memberShip-title-left i {
+      font-size: 40px; }
+    #home .memberShip .memberShip-title .memberShip-title-left span {
+      margin-left: 15px;
+      font-size: 30px;
+      font-weight: 700; }
+    #home .memberShip .memberShip-title .memberShip-title-right span {
+      font-size: 26px; }
+  #home .memberShip .memberShip-center {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 30px; }
+    #home .memberShip .memberShip-center .ticket {
+      margin-right: 16px;
+      width: 468px;
+      height: 352px; }
+      #home .memberShip .memberShip-center .ticket .ticket-title {
+        height: 82px;
+        line-height: 82px;
+        display: flex;
+        justify-content: space-between; }
+        #home .memberShip .memberShip-center .ticket .ticket-title .ticket-title-left {
+          font-size: 30px;
+          font-weight: 700; }
+        #home .memberShip .memberShip-center .ticket .ticket-title .ticket-title-right {
+          font-size: 24px;
+          color: #5c3946; }
+          #home .memberShip .memberShip-center .ticket .ticket-title .ticket-title-right b {
+            margin-right: 3px; }
+          #home .memberShip .memberShip-center .ticket .ticket-title .ticket-title-right span {
+            margin-left: 3px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #f3dfca; }
+          #home .memberShip .memberShip-center .ticket .ticket-title .ticket-title-right i {
+            margin-left: 5px; }
+      #home .memberShip .memberShip-center .ticket .ticket-center {
+        display: flex;
+        justify-content: space-around; }
+        #home .memberShip .memberShip-center .ticket .ticket-center .ticket-context img {
+          width: 212px;
+          border-radius: 5px; }
+        #home .memberShip .memberShip-center .ticket .ticket-center .ticket-context .ticket-price span {
+          color: #ff6743;
+          font-size: 36px;
+          margin-right: 6px; }
+        #home .memberShip .memberShip-center .ticket .ticket-center .ticket-context .ticket-price i {
+          color: #888;
+          text-decoration: line-through; }
+    #home .memberShip .memberShip-center .discount {
+      width: 230px;
+      height: 352px;
+      margin-left: 16px; }
+      #home .memberShip .memberShip-center .discount .discount-title {
+        height: 82px;
+        line-height: 82px;
+        display: flex;
+        justify-content: space-between; }
+        #home .memberShip .memberShip-center .discount .discount-title .discount-title-left {
+          font-size: 30px;
+          font-weight: 700; }
+        #home .memberShip .memberShip-center .discount .discount-title .discount-title-right {
+          font-size: 24px;
+          color: #5c3946; }
+          #home .memberShip .memberShip-center .discount .discount-title .discount-title-right i {
+            margin-left: 5px; }
+      #home .memberShip .memberShip-center .discount .discount-center .discount-context img {
+        width: 212px;
+        border-radius: 5px; }
+      #home .memberShip .memberShip-center .discount .discount-center .discount-context .discount-dis span {
+        text-align: left;
+        color: #ff6743;
+        font-size: 36px; }
+      #home .memberShip .memberShip-center .discount .discount-center .discount-context .discount-dis i {
+        font-style: normal;
+        color: #888; }
+#home .show {
+  margin-top: 30px;
+  margin-bottom: 60px; }
+  #home .show .show-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    padding: 30px 0 50px 30px; }
+    #home .show .show-title span {
+      font-weight: 800;
+      font-size: 38px; }
+    #home .show .show-title i {
+      color: #888;
+      margin-right: 30px; }
+  #home .show .show-center {
+    background-color: #342425;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between; }
+    #home .show .show-center .show-center-left {
+      padding-right: 50px; }
+      #home .show .show-center .show-center-left img {
+        width: 200px;
+        border: 2px solid #fff;
+        border-radius: 5px; }
+    #home .show .show-center .show-center-right {
+      width: 436px;
+      padding-right: 50px;
+      color: #fff;
+      text-align: left; }
+      #home .show .show-center .show-center-right .show-date {
+        padding-top: 32px; }
+        #home .show .show-center .show-center-right .show-date span {
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 50px;
+          margin-right: 8px; }
+        #home .show .show-center .show-center-right .show-date i {
+          font-size: 24px;
+          font-style: normal;
+          line-height: 100px; }
+      #home .show .show-center .show-center-right .show-headline {
+        font-size: 32px;
+        font-weight: 700; }
+      #home .show .show-center .show-center-right .show-address {
+        font-size: 24px;
+        line-height: 100px; }
+  #home .show .show-context {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align: left;
+    overflow: hidden; }
+    #home .show .show-context .show-context-one {
+      width: 212px;
+      margin-right: 15px; }
+      #home .show .show-context .show-context-one img {
+        width: 212px;
+        border-radius: 5px; }
+      #home .show .show-context .show-context-one .show-context-title {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 50px; }
+      #home .show .show-context .show-context-one .show-context-price span {
+        color: #ff6743;
+        font-size: 32px; }
+      #home .show .show-context .show-context-one .show-context-price i {
+        font-style: normal;
+        font-size: 24px;
+        color: #888; }
 
 /*# sourceMappingURL=home.css.map */

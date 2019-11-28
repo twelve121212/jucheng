@@ -1,11 +1,19 @@
 import React from "react";
+import{
+    bindActionCreators
+}from "redux";
+import homeCreactor from "../store/actionCreator/home";
+import {connect} from "react-redux";
+
+import IScroll from 'iscroll';
 import "../assets/css/reset.css"
 import '../assets/iconfont/iconfont.css';
 import "../assets/css/home.css"
 import lunbo from "../assets/Y_images/lunbo.jpg"
 import fenxiang from "../assets/Y_images/fenxiang.png"
 import yanchu from "../assets/Y_images/yanchu.jpg"
-export default class Home extends React.Component {
+import xunyan from "../assets/Y_images/xunyan.jpg"
+class Home extends React.Component {
     render() {
         return (
             <div id="home">
@@ -85,18 +93,18 @@ export default class Home extends React.Component {
                         </div>
                     </div>
                     <div className="priority-center">
-                        <img src={yanchu} alt=""/>
+                        <img src={this.props.priorList.pic} alt=""/>
                             <div className="priority-center-right">
-                                <div className="priority-title">南京市政府南京市文化消费政府南京市文化消费政府南京市文化消费政府</div>
+        <div className="priority-title">{this.props.priorList.schedular_name}</div>
                                 <div className="priority-address">
-                                    <span>南京</span>|
-                                    <span>江苏大剧院</span>
+        <span>{this.props.priorList.city_name}</span>|
+        <span>{this.props.priorList.venue_name}</span>
                                 </div>
                                 <div className="priority-footer">
                                     <div className="priority-footer-left">
                                         <div className="date">
-                                            <span>11/28</span>
-                                            <span>12:00</span>
+                                            <span>{this.props.priorList.pre_time}</span>
+                                            
                                             <span className="start">开始</span>
                                         </div>
                                     </div>
@@ -105,7 +113,187 @@ export default class Home extends React.Component {
                             </div>
                         </div>
                     </div>
+                {/* 热门演出 */}
+                
+                <div className="hotShow">
+                    <div className="hotShow-title">
+                        <span>热门演出</span>
+                        <i className="iconfont icon-dayuhao"></i>
+                    </div>
+                    <div id="abc">
+                    <div className="hotShow-center" >
+                        <div className="hotShow-context">
+                            <img src={yanchu} alt=""/>
+                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
+                        </div>
+                        <div className="hotShow-context">
+                            <img src={yanchu} alt=""/>
+                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
+                        </div>
+                        <div className="hotShow-context">
+                            <img src={yanchu} alt=""/>
+                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
+                        </div>
+                        <div className="hotShow-context">
+                            <img src={yanchu} alt=""/>
+                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-            )
-        }
+                <div className="tourShow">
+                    <div className="tourShow-title">
+                        <span>巡回演出</span>
+                        <i className="iconfont icon-dayuhao"></i>
+                    </div>
+                    <div className="tourShow-center">
+                        <div className="tourShow-context">
+                            <img src={xunyan} alt=""/>
+                            <div class="tourShow-headline">万有系万有音乐有音乐系</div>
+                            <span>28场巡演</span>
+                        </div>
+                        <div className="tourShow-context">
+                            <img src={xunyan} alt=""/>
+                            <div class="tourShow-headline">万有系万有音乐有音乐系</div>
+                            <span>28场巡演</span>
+                        </div>
+
+                    </div>
+                </div>
+                {/* 会员尊享权益 */}
+                <div className="memberShip">
+                    <div className="memberShip-title">
+                        <div className="memberShip-title-left">
+                            <i className="iconfont icon-zuanshi1"></i>
+                            <span>VIP+会员尊享权益</span>
+                        </div>
+                        <div className="memberShip-title-right">
+                            <span>99元/年</span>
+                            <i className="iconfont icon-dayuhao"></i>
+                        </div>
+                    </div>
+                    <div className="memberShip-center">
+                        <div className="ticket">
+                            <div className="ticket-title">
+                                <div className="ticket-title-left">专属票价</div>
+                                <div className="ticket-title-right">
+                                    <b>3天</b>
+                                    <span>05</span>:
+                                    <span>29</span>:
+                                    <span>33</span>
+                                    <i className="iconfont icon-dayuhao"></i>
+                                </div>
+                            </div>
+                            <div className="ticket-center">
+                                <div className="ticket-context">
+                                    <img src={yanchu} alt=""/>
+                                    <div className="ticket-price">
+                                          <span>¥99</span>
+                                        <i>¥180</i>
+                                    </div>
+                                </div>
+                                <div className="ticket-context">
+                                    <img src={yanchu} alt=""/>
+                                    <div className="ticket-price">
+                                          <span>¥99</span>
+                                        <i>¥180</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="discount"> 
+                            <div className="discount-title">
+                                    <div className="discount-title-left">专享折扣</div>
+                                    <div className="discount-title-right">
+                                        <i className="iconfont icon-dayuhao"></i>
+                                    </div>
+                            </div>
+                            <div className="discount-center">
+                                <div className="discount-context">
+                                    <img src={yanchu} alt=""/>
+                                    <div className="discount-dis">
+                                        <span>8.5</span>
+                                        <i>折</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* 演出类型 */}
+                <div className="show">
+                    <div className="show-title">
+                        <span>演唱会</span>
+                        <i className="iconfont icon-dayuhao"></i>
+                    </div>
+                    <div className="show-center">
+                        <div className="show-center-left">
+                            <img src={yanchu}/>
+                        </div>
+                        <div className="show-center-right">
+                            <div className="show-date">
+                                <span>2019.12.16</span>
+                                <i>周日 20:00</i>
+                            </div>
+                            <div className="show-headline">万有音乐系万有音乐系</div>
+                            <div className="show-address">深圳|深圳剧院</div>
+                        </div>
+                    </div>
+                    <div className="show-context">
+                        <div className="show-context-one">
+                            <img src={yanchu} alt=""/>
+                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
+                            <div className="show-context-price">
+                                <span>180¥</span>
+                                <i>起</i>
+                            </div>
+                        </div>
+                        <div className="show-context-one">
+                            <img src={yanchu} alt=""/>
+                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
+                            <div className="show-context-price">
+                                <span>180¥</span>
+                                <i>起</i>
+                            </div>
+                        </div>
+                        <div className="show-context-one">
+                            <img src={yanchu} alt=""/>
+                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
+                            <div className="show-context-price">
+                                <span>180¥</span>
+                                <i>起</i>
+                            </div>
+                        </div>
+                        <div className="show-context-one">
+                            <img src={yanchu} alt=""/>
+                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
+                            <div className="show-context-price">
+                                <span>180¥</span>
+                                <i>起</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    componentDidMount(){
+        this.props.getPriority.call(this);
+        this.myscroll = new IScroll('#abc',{
+                mouseWheel: true,
+                scrollX: true
+                
+        })
+    }
 }
+function mapStateToProps({home}){
+    return{
+        referer:home.referer,
+        version:home.version,
+        priorList:home.priorList.pop(),
+    }   
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators(homeCreactor,dispatch)
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

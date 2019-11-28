@@ -77,9 +77,9 @@
         }
     }
     .priority {
-        width: 662px; 
+        width: 682px; 
         border: 2px solid hsla(30,55%,64%,.3);
-        margin:40px;
+        margin:30px;
         padding:28px;
         .priority-header {
             border-bottom: 2px dashed hsla(30,55%,64%,.3);
@@ -145,6 +145,312 @@
                 }
             }
         }
+    }   
+    .hotShow{
+        margin-bottom:60px;
+        .hotShow-title{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size:24px;
+            padding:30px 0 50px 30px;
+            span{
+                font-weight:800;
+                font-size:38px;
+            }
+            i{
+                color:#888;
+                margin-right:30px;
+            }
+        }
+        .hotShow-center{
+            width:100%;
+            padding-left:30px;
+            display:flex;
+            overflow: hidden;
+            .hotShow-context{
+                margin-right:15px;
+                img{
+                    width:212px;
+                    border-radius: 5px;
+                }
+                .hotShow-headline{
+                    text-align:left;
+                    font-weight: 700;
+                    font-size:30px;
+                    margin-top:15px;
+                    line-height:39px;
+                    color:#232323;
+                }
+            }  
+        }
     }
-    
+    .tourShow{
+        background-color: #f5f5f5;
+        padding-bottom: 50px;
+        .tourShow-title{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size:24px;
+            padding:40px 0 40px 30px;
+            span{
+                font-weight:800;
+                font-size:38px;
+            }
+            i{
+                color:#888;
+                margin-right:30px;
+            }
+        }
+        .tourShow-center{
+            width:100%;
+            padding-left:30px;
+            display:flex;
+            overflow: hidden;
+            .tourShow-context{
+                margin-right:36px;
+                img{
+                    width:498px;
+                    border-radius: 5px;
+                }
+                .tourShow-headline{
+                    text-align:left;
+                    font-weight: 700;
+                    font-size:30px;
+                    margin-top:15px;
+                    line-height:39px;
+                    color:#232323;
+                }
+                span{
+                    font-size:26px;
+                    color:#888;
+                    text-align:center;
+                    line-height:36px;
+                }
+            }
+        }
+    }
+    .memberShip{
+        background-color: #f5f5f5;
+        padding-bottom: 60px;
+        .memberShip-title{
+            background-image: url(../Y_images/vip_bg.cda230e.png);
+            width: 100%;
+            height:80px;
+            line-height:80px;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            padding:30px;
+            color:#f0d1b0;
+            .memberShip-title-left{
+                i{
+                    font-size:40px;
+                }
+                span{
+                    margin-left:15px;
+                    font-size:30px;
+                    font-weight:700;
+                }
+            }
+            .memberShip-title-right{
+                span{
+                    font-size:26px;
+                }
+            }
+        }
+        .memberShip-center{
+            background-color: #f5f5f5;
+            display:flex;
+            justify-content: space-between;
+            padding:0 30px 30px;
+            .ticket{
+                margin-right:16px;
+                width:468px;
+                height:352px;
+                .ticket-title{
+                    height:82px;
+                    line-height:82px;
+                    display: flex;
+                    justify-content: space-between;
+                    .ticket-title-left{
+                        font-size:30px;
+                        font-weight:700;
+                    }
+                    .ticket-title-right{
+                        font-size:24px;
+                        color:#5c3946;
+                        b{
+                            margin-right:3px;
+                        }
+                        span{
+                            margin-left:3px;
+                            width:36px;
+                            height:36px;
+                            border-radius: 50%;
+                            background-color: #f3dfca;
+                        }
+                        i{
+                            margin-left:5px;
+                        }
+                    }
+                }
+                .ticket-center{
+                    display:flex;
+                    justify-content:space-around;
+                    .ticket-context{
+                        img{
+                            width:212px;
+                            border-radius: 5px;
+                        }
+                        .ticket-price{
+                            span{
+                                color:#ff6743;
+                                font-size:36px;
+                                margin-right:6px;
+                            }
+                            i{
+                                color:#888;
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+            }
+            .discount{
+                width: 230px;
+                height:352px;
+                margin-left:16px;
+                .discount-title{
+                    height:82px;
+                    line-height:82px;
+                    display: flex;
+                    justify-content: space-between;
+                    .discount-title-left{
+                        font-size:30px;
+                        font-weight:700;
+                    }
+                    .discount-title-right{
+                        font-size:24px;
+                        color:#5c3946;
+                        i{
+                            margin-left:5px;
+                        }
+                    }
+                }
+                .discount-center{
+                    .discount-context{
+                        img{
+                            width:212px;
+                            border-radius: 5px;
+                        }
+                        .discount-dis{
+                            span{
+                                text-align:left;
+                                color:#ff6743;
+                                font-size:36px;
+                            }
+                            i{
+                                font-style: normal;
+                                color:#888;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .show{
+        margin-top:30px;
+        margin-bottom: 60px;
+        .show-title{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size:24px;
+            padding:30px 0 50px 30px;
+            span{
+                font-weight:800;
+                font-size:38px;
+            }
+            i{
+                color:#888;
+                margin-right:30px;
+            }
+        }
+        .show-center{
+            background-color: rgba(52,36,37,1);
+            padding:30px;
+            display:flex;
+            justify-content: space-between;
+            .show-center-left{
+                padding-right:50px;
+                img{
+                    width:200px;
+                    border:2px solid #fff;
+                    border-radius:5px;
+                }
+            }
+            .show-center-right{
+                width:436px;
+                padding-right:50px;
+                color:#fff;
+                text-align: left;
+                .show-date{
+                    padding-top:32px;
+                    span{
+                        font-size:32px;
+                        font-weight:700;
+                        line-height:50px;
+                        margin-right:8px;
+                    }
+                    i{
+                        font-size:24px;
+                        font-style:normal;
+                        line-height:100px;
+                    }
+                }
+                .show-headline{
+                    font-size:32px;
+                    font-weight:700;
+                }
+                .show-address{
+                    font-size:24px;
+                    line-height:100px;
+                }
+            }
+        }
+        .show-context{
+            display:flex;
+            margin-top:30px;
+            margin-left:30px;
+            text-align:left;
+            overflow: hidden;
+            .show-context-one{
+                width:212px;
+                margin-right:15px;
+                img{
+                    width:212px;
+                    border-radius: 5px;
+                }
+                .show-context-title{
+                    font-size:30px;
+                    font-weight:700;
+                    line-height:50px;
+                }
+                .show-context-price{
+                    span{
+                        color:#ff6743;
+                        font-size:32px;
+                    }
+                    i{
+                        font-style: normal;
+                        font-size:24px;
+                        color:#888;
+                    }
+                }
+            }
+        }
+    }
 }
