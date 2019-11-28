@@ -9,7 +9,7 @@
 }
 .App .certain{
   flex:1;
-  background:red;
+  /* background:red; */
 }
 .App .nav{
   height:98.06px;
