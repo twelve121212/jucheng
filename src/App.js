@@ -17,7 +17,7 @@ function App() {
            <MyRoute></MyRoute>
       </div>
 
-      <footer class="nav">
+      <footer className="nav">
           
           <MyNavLink></MyNavLink>
       </footer>
