@@ -1,4 +1,5 @@
 #root{
+
   height:100%;
 }
 .App {
@@ -9,7 +10,9 @@
 }
 .App .certain{
   flex:1;
-  background:#fdfdfd;
+  /* background:red; */
+  overflow-y:scroll;
+  background-color: #fdfdfd;
 }
 .App .nav{
   height:98.06px;

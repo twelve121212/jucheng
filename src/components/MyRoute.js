@@ -3,7 +3,7 @@ import {Switch,Route} from "react-router-dom";
 import router from "../router"
 function MyRoute() {
     return (
-        <div>
+        <fragment>
             <Switch>
             {
                 router.config.map(v=>(
@@ -11,7 +11,7 @@ function MyRoute() {
                 ))
             }
           </Switch>
-        </div>
+        </fragment>
     )
 }
 export default MyRoute

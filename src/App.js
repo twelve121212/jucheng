@@ -13,7 +13,7 @@ import MyRoute from "./components/MyRoute";
 function App() {
   return (
     <div className="App">
-      <div class="certain">
+      <div className="certain">
            <MyRoute></MyRoute>
       </div>
 

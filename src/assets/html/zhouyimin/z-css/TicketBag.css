@@ -1,0 +1,33 @@
+#TicketBag {
+  height: 100%;
+}
+#TicketBag header {
+  height: 88.02px;
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  line-height: 88.02px;
+}
+#TicketBag header span {
+  font-size: 36px;
+}
+#TicketBag header .iconfont {
+  font-size: 36px;
+  margin: 0 24px;
+}
+#TicketBag header .icon-sandian {
+  float: right;
+}
+#TicketBag header .icon-dayuhao1 {
+  float: left;
+}
+#TicketBag section img {
+  width: 218.1px;
+  height: 155.08px;
+  margin-top: 280px;
+}
+#TicketBag section h3 {
+  margin-top: 50px;
+  color: #999;
+}
+
+/*# sourceMappingURL=TicketBag.css.map */
