@@ -1,0 +1,30 @@
+#HaveNav{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    .certain{
+        flex:1;
+        overflow-y:scroll;
+        background-color: #fdfdfd;
+    }
+    .footer{
+        height:98.06px;
+        width:100%;
+        border-top:1px solid #ccc;
+        background:#fefefe;
+        display: flex;
+        .footer_one{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            i{
+                color:#232323;
+                font-size:50.02px;
+            }
+            p{
+                font-size:22.4px;
+            }
+        }
+    }
+}

@@ -1,9 +1,12 @@
 import Home from "../views/Home";
 import Theater from "../views/Theater";
 import TicketBag from "../views/TicketBag";
-import My from "../views/My"
-// import Login from "../views/Login"
-import React from "react"
+import My from "../views/My";
+import Login from "../views/Login";
+import ShowDetail from "../views/ShowDetail";
+import ShowType from "../views/ShowType";
+import TourDetail from "../views/TourDetail";
+
 export default {
     className:"footer_one",
     activeClassName:"App-active",
@@ -22,7 +25,7 @@ export default {
             className:"iconfont icon-gejuyuan"
         },
         {
-            path:"/ticketBag",
+            path:"/ticketbag",
             linkName:"票夹",
             component:TicketBag,
             className:"iconfont icon-piaojia"
@@ -33,15 +36,26 @@ export default {
             component:My,
             className:"iconfont icon-wode"
         },
-        // {
-        //     path:"/login",
-        //     linkName:"登陆",
-        //     component:Login
-        // },
         {
-            path:"*",
-            // linkName:"404",
-            component:()=><div>404,页面不存在</div>
+            path:"/login",
+            component:Login
+        },
+        {
+            path:'/showtype/:type',
+            component:ShowType
+        },
+        {
+            path:'/showdetail',
+            component:ShowDetail
+        },
+        {
+            path:'/tourdetail',
+            component:TourDetail
         }
+        // {
+        //     path:"*",
+        //     // linkName:"404",
+        //     component:()=><div>404,页面不存在</div>
+        // }
     ]
 }

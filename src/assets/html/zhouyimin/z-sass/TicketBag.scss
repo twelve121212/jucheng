@@ -1,4 +1,34 @@
 #TicketBag{
-
+    height:100%;
+    header{
+        height:88.02px;
+        background:#fff;
+        border-bottom: 1px solid #ebebeb;
+        line-height:88.02px;
+        span{
+            font-size:36px;
+        }
+        .iconfont{
+            font-size:36px;
+            margin:0 24px;
+        }
+        .icon-sandian{
+            float:right;
+        }
+        .icon-dayuhao1{
+            float:left;
+        }
+    }
+    section{
+        img{
+            width:218.1px;
+            height:155.08px;
+            margin-top:280px;
+        }
+        h3{
+            margin-top:50px;
+            color:#999;
+        }
+    }
     
 }
