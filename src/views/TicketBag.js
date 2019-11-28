@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import '../assets/css/reset.css';
 import '../assets/html/zhouyimin/z-css/TicketBag.css';
 import i_ticket_empty from '../assets/html/zhouyimin/z-images/ticket_empty.png';
@@ -8,7 +9,7 @@ export default class TicketBag extends React.Component{
             <div id='TicketBag'>
                 <header>
                     <span>票夹</span>
-                    <i className="iconfont icon-dayuhao1"></i>
+                    <Link className="iconfont icon-dayuhao1" to={'/'}></Link>
                     <i className="iconfont icon-sandian"></i>
                 </header>
 

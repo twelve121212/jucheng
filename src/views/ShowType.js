@@ -5,7 +5,7 @@ export default class ShowType extends React.Component{
     render(){
         return (
             <div id="ShowType">
-                ShowType
+                {this.props.match.params.type}
             </div>
         )
     }
