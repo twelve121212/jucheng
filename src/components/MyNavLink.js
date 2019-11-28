@@ -6,16 +6,25 @@ function MyNavLink() {
         <nav className="footer">
             {
                 router.config.map(v=>(
-                    v.linkName?<NavLink
+                    v.linkName?v.children.map(value=>(
+                        <NavLink
                         className={router.className}
                         activeClassName={router.activeClassName}
-                        key={v.path} to={v.path} exact={v.exact}>
+                        key={value.path} to={value.path} exact={value.exact}>
                             
-                                <i className={v.className}></i>
-                                <p>{v.linkName}</p >
-                            
-                        </NavLink>:null
+                                <i className={value.className}></i>
+                                <p>{value.linkName}</p > 
+                        </NavLink>
+                    )):
+                    <NavLink
+                    key={v.path} to={v.path} exact={v.exact}>
+                        
+                            <i className={v.className}></i>
+                            <p>{v.linkName}</p>
+                               
+                    </NavLink>
                 ))
+
             }
         </nav>
     )

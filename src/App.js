@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import MyNavLink from "./components/MyNavLink";
 import MyRoute from "./components/MyRoute";
-
 function App() {
   return (
     <div className="App">
@@ -18,7 +17,7 @@ function App() {
       </div>
 
       <footer className="nav">
-          
+
           <MyNavLink></MyNavLink>
       </footer>
       
