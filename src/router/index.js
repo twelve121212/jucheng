@@ -6,6 +6,10 @@ import Login from "../views/Login";
 import ShowDetail from "../views/ShowDetail";
 import ShowType from "../views/ShowType";
 import TourDetail from "../views/TourDetail";
+import Venue from "../views/Venue";
+import CityChose from "../views/CityChose";
+
+
 
 export default {
     className:"footer_one",
@@ -53,6 +57,14 @@ export default {
         {
             path:'/tourdetail',
             component:TourDetail
+        },
+        {
+            path:'/venue/:type',
+            component:Venue
+        },
+        {
+            path:'/citychose',
+            component:CityChose
         }
         // {
         //     path:"*",

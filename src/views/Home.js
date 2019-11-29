@@ -6,15 +6,16 @@ import "../assets/css/home.css"
 import lunbo from "../assets/Y_images/lunbo.jpg"
 import fenxiang from "../assets/Y_images/fenxiang.png"
 import yanchu from "../assets/Y_images/yanchu.jpg"
+import Location from "../components/Location"
 export default class Home extends React.Component {
     render() {
         return (
             <div id="home">
                 {/* 网页头部 */}
                 <div className="header">
-                    <div className="position">
-                        <i className="iconfont icon-location"></i>全国
-                    </div>
+                    <Link className="position" to={"/citychose"}>
+                        <i id="container" className="iconfont icon-location"></i>
+                    </Link>
                     <div className="search">
                         <i className="iconfont icon-soushuo"></i>
                         <input type="text" placeholder="搜索热门演出"/>
@@ -92,26 +93,74 @@ export default class Home extends React.Component {
                     </div>
                     <div className="priority-center">
                         <img src={yanchu} alt=""/>
-                            <div className="priority-center-right">
-                                <div className="priority-title">南京市政府南京市文化消费政府南京市文化消费政府南京市文化消费政府</div>
-                                <div className="priority-address">
-                                    <span>南京</span>|
-                                    <span>江苏大剧院</span>
-                                </div>
-                                <div className="priority-footer">
-                                    <div className="priority-footer-left">
-                                        <div className="date">
-                                            <span>11/28</span>
-                                            <span>12:00</span>
-                                            <span className="start">开始</span>
-                                        </div>
+                        <div className="priority-center-right">
+                            <div className="priority-title">南京市政府南京市文化消费政府南京市文化消费政府南京市文化消费政府</div>
+                            <div className="priority-address">
+                                <span>南京</span>|
+                                <span>江苏大剧院</span>
+                            </div>
+                            <div className="priority-footer">
+                                <div className="priority-footer-left">
+                                    <div className="date">
+                                        <span>11/28</span>
+                                        <span>12:00</span>
+                                        <span className="start">开始</span>
                                     </div>
-                                    <div className="remind">开售提醒</div>
                                 </div>
+                                <div className="remind">开售提醒</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            )
-        }
+                <Link  to={"/venue/1"}>11</Link>
+                <Link  to={"/venue/3"}>22</Link>
+                <Link  to={"/venue/4"}>33</Link>
+                <Link  to={"/venue/5"}>44</Link>
+            </div>
+                
+        )
+    }
+    componentWillMount(){
+    // console.log(3333,window.AMap)
+    getlocation()
+    }
+        
 }
+function getlocation(){
+        const AMap = window.AMap
+        AMap.plugin('AMap.Geolocation',function(){
+            var geolocation = new AMap.Geolocation({
+                // 是否使用高精度定位，默认：true
+                enableHighAccuracy: true,
+                // 设置定位超时时间，默认：无穷大
+                timeout: 10000,
+            })
+            geolocation.getCurrentPosition()
+            AMap.event.addListener(geolocation, 'complete', onComplete)
+            AMap.event.addListener(geolocation, 'error', onError)
+            function onComplete (data) {
+                // data是具体的定位信息
+                console.log(1111,data);
+            }
+            function onError (data) {
+                // 定位出错
+                console.log(2222,data);
+            }
+        })
+}
+// function autoComplete({state,commit},keyword){
+//     const AMap = window.AMap
+//     AMap.plugin('AMap.Autocomplete',function(){
+//         //实例化Autocomplete
+//         var autoOptions = {
+//             //city 限定城市，默认全国
+//             city:state.province
+//         }
+//         var autoComplete = new AMap.Autocomplete(autoOptions);
+//         autoComplete.search(keyword,function(status,result){
+//             // 搜索成功时，result即是对应的匹配数据
+//             result.tips = result.tips || [];
+//             commit("CHANGE_TIPS",result.tips)
+//         })
+//     })
+// }
