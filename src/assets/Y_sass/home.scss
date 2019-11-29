@@ -163,15 +163,19 @@
                 margin-right:30px;
             }
         }
+        .hotShow-center::-webkit-scrollbar {
+            display: none;
+        }
         .hotShow-center{
-            width:100%;
+            // width:100%;
             padding-left:30px;
             display:flex;
-            overflow: hidden;
+            overflow-x: scroll;
             .hotShow-context{
                 margin-right:15px;
                 img{
                     width:212px;
+                    height:290px;
                     border-radius: 5px;
                 }
                 .hotShow-headline{
@@ -181,6 +185,11 @@
                     margin-top:15px;
                     line-height:39px;
                     color:#232323;
+                    overflow:hidden; 
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2; 
                 }
             }  
         }
@@ -203,24 +212,34 @@
                 margin-right:30px;
             }
         }
+        .tourShow-center::-webkit-scrollbar {
+            display: none;
+        }
         .tourShow-center{
             width:100%;
             padding-left:30px;
             display:flex;
-            overflow: hidden;
+            overflow-x: scroll;
             .tourShow-context{
                 margin-right:36px;
                 img{
                     width:498px;
+                    height:280px;
                     border-radius: 5px;
                 }
                 .tourShow-headline{
-                    text-align:left;
-                    font-weight: 700;
+                    width:498px;
+                    text-align:center;
+                    font-weight:700;
                     font-size:30px;
                     margin-top:15px;
                     line-height:39px;
                     color:#232323;
+                    overflow:hidden; 
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:1; 
                 }
                 span{
                     font-size:26px;
@@ -413,31 +432,52 @@
                 }
                 .show-headline{
                     font-size:32px;
+                    line-height:50px;
                     font-weight:700;
+                    overflow:hidden; 
+                    text-align:left;
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2; 
                 }
                 .show-address{
                     font-size:24px;
                     line-height:100px;
+                    text-align:left;
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:1; 
                 }
             }
+        }
+        .show-context::-webkit-scrollbar {
+            display: none;
         }
         .show-context{
             display:flex;
             margin-top:30px;
             margin-left:30px;
             text-align:left;
-            overflow: hidden;
+            overflow-x:scroll;
             .show-context-one{
                 width:212px;
                 margin-right:15px;
                 img{
                     width:212px;
+                    height:290px;
                     border-radius: 5px;
                 }
                 .show-context-title{
                     font-size:30px;
                     font-weight:700;
                     line-height:50px;
+                    overflow:hidden; 
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2; 
                 }
                 .show-context-price{
                     span{

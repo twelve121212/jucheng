@@ -3,6 +3,15 @@ export default(state=stateInit,{type,payload})=>{
     state=JSON.parse(JSON.stringify(state));
     if(type==="GET_PRIORITY"){
         state.priorList=payload.priorList;
+    }else if(type==="GET_HOSTSHOW"){
+        state.hots_show_list=payload.hots_show_list;
+    }else if(type==="GTE_TOURLIST"){
+        state.tour_show_list=payload.tour_show_list;
+    }else if(type==="GET_VIPDISCOUNT"){
+        state.allList=payload.allList;
+        state.discountList=payload.discountList;
+    }else if(type==="GET_SHOWTYPELIST"){
+        state.showTypeList=payload.showTypeList;
     }
     return state;
 }

@@ -87,7 +87,7 @@ class Home extends React.Component {
                     </div>
                 </div>
                 {/* 优先购票 */}
-                <div className="priority">
+                {/* <div className="priority">
                     <div className="priority-header">
                         <div className="priority-header-left">
                             <span>优先购票</span>
@@ -118,9 +118,9 @@ class Home extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+
                 {/* 热门演出 */}
-                
                 <div className="hotShow">
                     <div className="hotShow-title">
                         <span>热门演出</span>
@@ -128,42 +128,35 @@ class Home extends React.Component {
                     </div>
                     <div id="abc">
                     <div className="hotShow-center" >
-                        <div className="hotShow-context">
-                            <img src={yanchu} alt=""/>
-                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
-                        </div>
-                        <div className="hotShow-context">
-                            <img src={yanchu} alt=""/>
-                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
-                        </div>
-                        <div className="hotShow-context">
-                            <img src={yanchu} alt=""/>
-                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
-                        </div>
-                        <div className="hotShow-context">
-                            <img src={yanchu} alt=""/>
-                            <div class="hotShow-headline">万有系万有音乐有音乐系</div>
-                        </div>
+                        {
+                            this.props.hots_show_list.map(v=>(
+                                <div className="hotShow-context" key={v.schedular_url}>
+                                    <img src={v.pic} alt=""/>
+                                    <div className="hotShow-headline">{v.show_name}</div>
+                                </div>
+                            ))
+                        }
                     </div>
                     </div>
                 </div>
+                {/* 巡回演出 */}
                 <div className="tourShow">
                     <div className="tourShow-title">
                         <span>巡回演出</span>
-                        <i className="iconfont icon-dayuhao"></i>
+                        <Link to={"/tourdetail"}>
+                            <i className="iconfont icon-dayuhao"></i>
+                        </Link>
                     </div>
                     <div className="tourShow-center">
-                        <div className="tourShow-context">
-                            <img src={xunyan} alt=""/>
-                            <div class="tourShow-headline">万有系万有音乐有音乐系</div>
-                            <span>28场巡演</span>
-                        </div>
-                        <div className="tourShow-context">
-                            <img src={xunyan} alt=""/>
-                            <div class="tourShow-headline">万有系万有音乐有音乐系</div>
-                            <span>28场巡演</span>
-                        </div>
-
+                        {
+                            this.props.tour_show_list.map(v=>(
+                                <div className="tourShow-context" key={v.tour_show_url}>
+                                    <img src={v.pic} alt=""/>
+                                    <div className="tourShow-headline">{v.show_name}</div>
+                                    <span>{v.schedular_num}场巡演</span>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
                 {/* 会员尊享权益 */}
@@ -191,112 +184,106 @@ class Home extends React.Component {
                                 </div>
                             </div>
                             <div className="ticket-center">
-                                <div className="ticket-context">
-                                    <img src={yanchu} alt=""/>
-                                    <div className="ticket-price">
-                                          <span>¥99</span>
-                                        <i>¥180</i>
-                                    </div>
-                                </div>
-                                <div className="ticket-context">
-                                    <img src={yanchu} alt=""/>
-                                    <div className="ticket-price">
-                                          <span>¥99</span>
-                                        <i>¥180</i>
-                                    </div>
-                                </div>
+                                {
+                                    this.props.allList.map(v=>(
+                                        <div className="ticket-context" key={v.pic}>
+                                            <img src={v.pic} alt=""/>
+                                            <div className="ticket-price">
+                                                <span>¥{v.fixed_price}</span>
+                                                <i>{v.price}</i>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div>
                         <div className="discount"> 
                             <div className="discount-title">
-                                    <div className="discount-title-left">专享折扣</div>
-                                    <div className="discount-title-right">
-                                        <i className="iconfont icon-dayuhao"></i>
-                                    </div>
+                                <div className="discount-title-left">专享折扣</div>
+                                <div className="discount-title-right">
+                                    <i className="iconfont icon-dayuhao"></i>
+                                </div>
                             </div>
                             <div className="discount-center">
-                                <div className="discount-context">
-                                    <img src={yanchu} alt=""/>
-                                    <div className="discount-dis">
-                                        <span>8.5</span>
-                                        <i>折</i>
-                                    </div>
-                                </div>
+                                {
+                                    this.props.discountList.map(v=>(
+                                        <div className="discount-context" key={v.pic}>
+                                            <img src={v.pic} alt=""/>
+                                            <div className="discount-dis">
+                                                <span>{v.min_discount}</span>
+                                                <i>折</i>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                                
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* 演出类型 */}
-                <div className="show">
+                <div>{
+                this.props.showTypeList.map(v=>(
+                    <div className="show" key={v.title}>
                     <div className="show-title">
-                        <span>演唱会</span>
+                        <span>{v.title}</span>
                         <i className="iconfont icon-dayuhao"></i>
                     </div>
                     <div className="show-center">
                         <div className="show-center-left">
-                            <img src={yanchu}/>
+                            <img src={v.list[0].pic}/>
                         </div>
                         <div className="show-center-right">
                             <div className="show-date">
-                                <span>2019.12.16</span>
-                                <i>周日 20:00</i>
+                                <span>2019/{v.list[0].date}</span>
+                                <i>{v.list[0].week}</i>
                             </div>
-                            <div className="show-headline">万有音乐系万有音乐系</div>
-                            <div className="show-address">深圳|深圳剧院</div>
+                            <div className="show-headline">{v.list[0].schedular_name}</div>
+                            <div className="show-address">{v.list[0].city_name} | {v.list[0].venue_name}</div>
                         </div>
                     </div>
-                    <div className="show-context">
-                        <div className="show-context-one">
-                            <img src={yanchu} alt=""/>
-                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
+                    {
+                        console.log(v.list.shift())
+                    }
+                    <div className="show-context">{ 
+                    v.list.map(a=>(
+                        <div className="show-context-one" key={a.sche_id}>
+                            <img src={a.pic} alt=""/>
+                            <div className="show-context-title">{a.schedular_name}</div>
                             <div className="show-context-price">
-                                <span>180¥</span>
+                                <span>¥{a.low_price}</span>
                                 <i>起</i>
                             </div>
-                        </div>
-                        <div className="show-context-one">
-                            <img src={yanchu} alt=""/>
-                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
-                            <div className="show-context-price">
-                                <span>180¥</span>
-                                <i>起</i>
-                            </div>
-                        </div>
-                        <div className="show-context-one">
-                            <img src={yanchu} alt=""/>
-                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
-                            <div className="show-context-price">
-                                <span>180¥</span>
-                                <i>起</i>
-                            </div>
-                        </div>
-                        <div className="show-context-one">
-                            <img src={yanchu} alt=""/>
-                            <div className="show-context-title">3科幻舞台剧3科幻舞台剧</div>
-                            <div className="show-context-price">
-                                <span>180¥</span>
-                                <i>起</i>
-                            </div>
-                        </div>
-                    </div>
+                        </div> 
+                    ))
+                    }</div>
                 </div>
+                ))
+                }
+                </div>    
             </div>
         )
     }
     componentDidMount(){
         this.props.getPriority.call(this);
-        this.myscroll = new IScroll('#abc',{
-                mouseWheel: true,
-                scrollX: true
-                
-        })
+        this.props.getHostShow.call(this);
+        this.props.getTourList.call(this);
+        this.props.getVipDiscount.call(this);
+        this.props.getShowTypeList.call(this);
     }
 }
 function mapStateToProps({home}){
+    console.log(home.showTypeList)
     return{
         referer:home.referer,
         version:home.version,
         priorList:home.priorList.pop(),
+        hots_show_list:home.hots_show_list.slice(0,10),
+        tour_show_list:home.tour_show_list,
+        allList:home.allList.slice(0,2),
+        discountList:home.discountList.slice(0,1),
+        showType:home.showTypeList.list,
+        showTypeList:home.showTypeList,
     }   
 }
 function mapDispatchToProps(dispatch){
