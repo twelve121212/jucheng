@@ -10,24 +10,22 @@ import '../assets/iconfont/iconfont.css';
 import "../assets/css/home.css"
 import lunbo from "../assets/Y_images/lunbo.jpg"
 import fenxiang from "../assets/Y_images/fenxiang.png"
-import yanchu from "../assets/Y_images/yanchu.jpg"
-import xunyan from "../assets/Y_images/xunyan.jpg"
 class Home extends React.Component {
     render() {
         return (
             <div id="home">
                 {/* 网页头部 */}
                 <div className="header">
-                    <div className="position">
-                        <i className="iconfont icon-location"></i>全国
-                    </div>
+                    <Link className="position" to={"/citychose"}>
+                        <i id="container" className="iconfont icon-location"></i>全国
+                    </Link>
                     <div className="search">
                         <i className="iconfont icon-soushuo"></i>
-                        <input type="text" placeholder="搜索热门演出"/>
+                        <span>搜索热门演出</span>
                     </div>
-                    <div className="date">
+                    <Link className="date" to={"/calendar"}>
                         <i className="iconfont icon-riqi"></i>
-                    </div>
+                    </Link>
                     <div className="share">
                         <img src={fenxiang} alt=""/>
                     </div>
@@ -112,8 +110,8 @@ class Home extends React.Component {
                                             <span className="start">开始</span>
                                         </div>
                                     </div>
-                                    <div className="remind">开售提醒</div>
                                 </div>
+                                <div className="remind">开售提醒</div>
                             </div>
                         </div>
                     </div> */}
@@ -222,7 +220,7 @@ class Home extends React.Component {
                 {/* 演出类型 */}
                 <div>{
                 this.props.showTypeList.map(v=>(
-                    <div className="show" key={v.title}>
+                    <div className="show" key={v.id}>
                     <div className="show-title">
                         <span>{v.title}</span>
                         <i className="iconfont icon-dayuhao"></i>
@@ -244,9 +242,8 @@ class Home extends React.Component {
                         console.log(v.list.shift())
                     }
                     <div className="show-context">{
-                    v.list.map(a=>(
-                        
-                        <div className="show-context-one" key={a.sche_id}>
+                    v.list.map((a)=>(
+                        <div className="show-context-one" key={a.id}>
                             <img src={a.pic} alt=""/>
                             <div className="show-context-title">{a.schedular_name}</div>
                             <div className="show-context-price">

@@ -13,11 +13,11 @@ export default class TicketBag extends React.Component{
                     <i className="iconfont icon-sandian"></i>
                 </header>
 
-                <section>
-                    <img src={i_ticket_empty} alt=""/>
+                 <section>
+                     <img src={i_ticket_empty} alt=""/>
                     <h3>暂无电子票</h3>
                 </section>
-            </div>
+             </div>
         )
     }
 }

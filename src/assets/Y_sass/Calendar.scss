@@ -1,0 +1,56 @@
+*{
+    box-sizing:border-box;
+}
+.calendar{
+    width:100%;
+    .calendar-month{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:94px;
+        font-size:28px;
+        color:#242424;
+        background-color: #fff;
+        i{
+            width: 166.66px;;
+        }
+        span{
+            width:416.66px;
+        }
+    }
+    .calendar-week{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        height:80px;
+        font-size:30px;
+        color:#242424;
+        span{
+            margin:0 10.25px;
+            width:80px;
+        }
+        span:nth-child(1){
+            color:#ff6743;
+        }
+        span:nth-child(7){
+            color:#ff6743;
+        }
+    }
+    .calendar-day{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: start;
+        align-items:center;
+        padding:32px 22.5px 0;
+        background-color: #fff;
+        span{
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            width:58px;
+            height:58px;
+            margin:20px;
+        }
+    }
+}
