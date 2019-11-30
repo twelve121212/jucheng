@@ -5,6 +5,7 @@
   top: 0;
 }
 .header .head {
+  width: 100%;
   display: flex;
   line-height: 88px;
   padding: 0 100px;
@@ -12,6 +13,7 @@
   font-size: 36px;
   border-bottom: 1px solid #ccc;
   background: #fff;
+  text-align: center;
 }
 
 .section {
@@ -54,10 +56,14 @@
   font-size: 24px;
   color: #666;
 }
+.section .wrap .position .position_name .position_right i{
+  font-size: 24px;
+  line-height: 80px;
+}
 .section .wrap .position .position_detail {
   display: flex;
   width: 100%;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 .section .wrap .position .position_detail::-webkit-scrollbar{
   display: none;

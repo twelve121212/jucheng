@@ -1,0 +1,92 @@
+html {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  font-size: 16px;
+}
+
+#header {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  height: 88px;
+}
+.header i {
+  font-size: 32px;
+}
+.header h3 {
+  font-size: 32px;
+}
+
+.section img {
+  width: 100%;
+  height: 310px;
+  background: yellow;
+}
+.section .venue_nav {
+  margin: 20px 25px 0 25px;
+  padding: 27px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.section .venue_nav .nav_one i {
+  font-size: 70px;
+  line-height: 84px;
+  color: orange;
+}
+.section .venue_nav .nav_one p {
+  font-size: 24px;
+  line-height: 28px;
+}
+.section .context {
+  margin: 20px 25px 0 25px;
+}
+.section .context h2 {
+  font-size: 36px;
+  font-weight: 600;
+  padding: 20px 25px 10px 0px;
+  text-align: left;
+}
+.section .context .context_one {
+  display: flex;
+  margin: 15px 0;
+}
+.section .context .context_one .img {
+  margin-right: 10px;
+}
+.section .context .context_one .img img {
+  width: 174px;
+  height: 234px;
+}
+.section .context .context_one .detail {
+  text-align: left;
+}
+.section .context .context_one .detail .name {
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 25px;
+}
+.section .context .context_one .detail .time {
+  font-size: 20px;
+  line-height: 35px;
+}
+.section .context .context_one .detail .position {
+  font-size: 20px;
+  line-height: 35px;
+}
+.section .context .context_one .detail .price {
+  margin-top: 25px;
+  font-size: 30px;
+  color: #ff7919;
+}
+
+/*# sourceMappingURL=Vence.css.map */
