@@ -1,0 +1,65 @@
+.setting{
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+    .setting-header{
+        width: 100%;
+        height: 88px;
+        background: #fff;
+        line-height: 88px;
+        margin-bottom: 30px;
+        .iconfont{
+            display: block;
+            float: left;
+            font-size: 40px;
+            color: #212121;
+            margin-left: 30px;
+        }
+        .icon-sandian{
+            margin-left: 210px;
+        }
+        .setting-title{
+            display: block;
+            float: left;
+            font-size: 30px;
+            margin-left: 260px;
+        }
+    }
+    .setting-main{
+        width: 100%;
+        height: 741px;
+        // padding: 0 30px 0;
+        .setting-main-top,.setting-main-bottom{
+            width: 100%;
+            background: #fff;
+            li{
+                margin: auto;
+                width: 688px;
+                height: 90.4px;
+                
+                border-bottom: 1px solid #ebebeb;
+                span{
+                    font-size: 31px;
+                    line-height: 90px;
+                    display:block;
+                    float: left;
+                    margin-left: 20px;
+                }
+            }
+            .space{
+                margin-bottom: 30px;
+                border: none;
+            }
+        }
+    }
+    .setting-footer{
+        width: 688px;
+        height: 90px;
+        margin:40px auto;
+        background: #fff;
+        outline: none;
+        border: none;
+        font-size: 30px;
+        color: #212121;
+    }
+}

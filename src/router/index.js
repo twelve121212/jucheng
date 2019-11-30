@@ -2,8 +2,9 @@ import Home from "../views/Home";
 import Theater from "../views/Theater";
 import TicketBag from "../views/TicketBag";
 import My from "../views/My"
-// import Login from "../views/Login"
+import Login from "../views/Login"
 import React from "react"
+import Setting from "../views/my/setting"
 export default {
     className:"footer_one",
     activeClassName:"App-active",
@@ -31,13 +32,19 @@ export default {
             path:"/my",
             linkName:"我的",
             component:My,
-            className:"iconfont icon-wode"
+            className:"iconfont icon-wode",
+            exact: true,
         },
-        // {
-        //     path:"/login",
-        //     linkName:"登陆",
-        //     component:Login
-        // },
+        {
+            path:"/my/setting",
+            // linkName:"用户设置",
+            component:Setting
+        },
+        {
+            path:"/login",
+            // linkName:"登陆",
+            component:Login
+        },
         {
             path:"*",
             // linkName:"404",
