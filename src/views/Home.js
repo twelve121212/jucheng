@@ -32,27 +32,27 @@ export default class Home extends React.Component {
                 </div>
                 {/* 图形中部导航 */}
                 <div className="picNav">
-                    <Link className="picnav vocol" to={"/showtype/1"}>
+                    <Link className="picnav vocol" to={{pathname:'/showtype',query:{cid:0,caid:35}}}>
                         <i className="iconfont icon-huatongKTVmaikefengchanggemianxing"></i>
                         <div>演唱会</div>
                     </Link>
 
-                    <Link className="picnav music" to={"/showtype/2"}>
+                    <Link className="picnav music" to={{pathname:'/showtype',query:{cid:0,caid:79}}}>
                         <i className="iconfont icon-yinfu"></i>
                         <div>音乐剧</div>
                     </Link>
 
-                    <Link className="picnav stage" to={"/showtype/3"}>
+                    <Link className="picnav stage" to={{pathname:'/showtype',query:{cid:0,caid:37}}}>
                         <i className="iconfont icon-xiaoji"></i>
                         <div>舞台剧</div>
                     </Link>
 
-                    <Link className="picnav children" to={"/showtype/4"}>
+                    <Link className="picnav children" to={{pathname:'/showtype',query:{cid:0,caid:38}}}>
                         <i className="iconfont icon-baobao"></i>
                         <div>儿童剧</div>
                     </Link>
 
-                    <Link className="picnav concert" to={"/showtype/5"}>
+                    <Link className="picnav concert" to={{pathname:'/showtype',query:{cid:0,caid:36}}}>
                         <i className="iconfont icon-gangqin"></i>
                         <div>音乐会</div>
                     </Link>

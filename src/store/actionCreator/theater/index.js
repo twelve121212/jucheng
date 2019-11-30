@@ -7,7 +7,7 @@ export const upTheater = payload=>(
 export default{
     getTheatreList(){
         return(dispatch)=>{
-            this.$axios.get("./theatre/index/getTheatreList",{
+            this.$axios.get("/n/theatre/index/getTheatreList",{
                 params:{
                     page:1,
                     version:"6.0.8",

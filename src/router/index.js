@@ -41,7 +41,7 @@ export default {
             component:Login
         },
         {
-            path:'/showtype/:type',
+            path:'/showtype',
             component:ShowType
         },
         {
