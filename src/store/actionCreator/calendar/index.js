@@ -7,7 +7,7 @@ export const getDay=payload=>(
 export default{
     getDay(){
         return(dispatch)=>{
-            this.$axios.get("/Search/getCalendar",{
+            this.$axios.get("/m/Search/getCalendar",{
                 params:{
                     year:2019,
                     month:11,

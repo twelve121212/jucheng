@@ -23,27 +23,11 @@ class Calendar extends React.Component{
                         <span>五</span>
                         <span>六</span>
                     </div>
-                    <div className="calendar-day">
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
-                        <span>1</span>
+                    <div className="calendar-day">{
+                        this.props.calendar.map(v=>(
+                            <span>{v.day}</span>
+                        ))
+                    }
                     </div>
                 </div>    
             </div>

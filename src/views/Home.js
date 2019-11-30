@@ -36,51 +36,15 @@ class Home extends React.Component {
                 </div>
                 {/* 图形中部导航 */}
                 <div className="picNav">
-                    <Link className="picnav vocol" to={"/showtype/1"}>
-                        <i className="iconfont icon-huatongKTVmaikefengchanggemianxing"></i>
-                        <div>演唱会</div>
-                    </Link>
-
-                    <Link className="picnav music" to={"/showtype/2"}>
-                        <i className="iconfont icon-yinfu"></i>
-                        <div>音乐剧</div>
-                    </Link>
-
-                    <Link className="picnav stage" to={"/showtype/3"}>
-                        <i className="iconfont icon-xiaoji"></i>
-                        <div>舞台剧</div>
-                    </Link>
-
-                    <Link className="picnav children" to={"/showtype/4"}>
-                        <i className="iconfont icon-baobao"></i>
-                        <div>儿童剧</div>
-                    </Link>
-
-                    <Link className="picnav concert" to={"/showtype/5"}>
-                        <i className="iconfont icon-gangqin"></i>
-                        <div>音乐会</div>
-                    </Link>
-
-                    <div className="picnav happy">
-                        <i className="iconfont icon-qiabao"></i>
-                        <div>欢聚橙卡</div>
-                    </div>
-                    <div className="picnav orange">
-                        <i className="iconfont icon-xinbaniconshangchuan-"></i>
-                        <div>橙PLUS卡</div>
-                    </div>
-                    <div className="picnav vip">
-                        <i className="iconfont icon-zuanshi1"></i>
-                        <div>vip+专区</div>
-                    </div>
-                    <div className="picnav integral">
-                        <i className="iconfont icon-dianpushouquanxiaofangzi"></i>
-                        <div>积分兑换</div>
-                    </div>
-                    <div className="picnav joint">
-                        <i className="iconfont icon-pengyou1"></i>
-                        <div>拼团</div>
-                    </div>
+                    {
+                        this.props.classify_list.map((v,i)=>(
+                            <Link className="picnav vocol" key={i} to={{pathname:'/showtype',query:{cid:0,caid:v.category_id}}}>
+                                <img src={v.pic} alt=""/>
+                                <div>{v.name}</div>
+                            </Link>
+                        ))
+                    }
+                    
                 </div>
                 {/* 优先购票 */}
                 {/* <div className="priority">
@@ -115,7 +79,6 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div> */}
-
                 {/* 热门演出 */}
                 <div className="hotShow">
                     <div className="hotShow-title">
@@ -219,8 +182,8 @@ class Home extends React.Component {
                 </div>
                 {/* 演出类型 */}
                 <div>{
-                this.props.showTypeList.map(v=>(
-                    <div className="show" key={v.id}>
+                this.props.showTypeList.map((v,i)=>(
+                    <div className="show" key={i}>
                     <div className="show-title">
                         <span>{v.title}</span>
                         <i className="iconfont icon-dayuhao"></i>
@@ -242,8 +205,8 @@ class Home extends React.Component {
                         console.log(v.list.shift())
                     }
                     <div className="show-context">{
-                    v.list.map((a)=>(
-                        <div className="show-context-one" key={a.id}>
+                    v.list.map((a,k)=>(
+                        <div className="show-context-one" key={k}>
                             <img src={a.pic} alt=""/>
                             <div className="show-context-title">{a.schedular_name}</div>
                             <div className="show-context-price">
@@ -266,10 +229,11 @@ class Home extends React.Component {
         this.props.getTourList.call(this);
         this.props.getVipDiscount.call(this);
         this.props.getShowTypeList.call(this);
+        this.props.getPicNav.call(this);
     }
 }
 function mapStateToProps({home}){
-    console.log(home.showTypeList)
+     console.log(home)
     return{
         referer:home.referer,
         version:home.version,
@@ -280,6 +244,7 @@ function mapStateToProps({home}){
         discountList:home.discountList.slice(0,1),
         showType:home.showTypeList.list,
         showTypeList:home.showTypeList,
+        classify_list:home.classify_list,
     }   
 }
 function mapDispatchToProps(dispatch){

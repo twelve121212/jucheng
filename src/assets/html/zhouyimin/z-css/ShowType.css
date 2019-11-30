@@ -1,3 +1,120 @@
+#ShowType {
+  height: 100%;
+}
+#ShowType section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#ShowType section header {
+  height: 88.02px;
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  line-height: 88.02px;
+}
+#ShowType section header span {
+  font-size: 36px;
+}
+#ShowType section header .iconfont {
+  font-size: 36px;
+  margin: 0 24px;
+}
+#ShowType section header .icon-sandian {
+  float: right;
+}
+#ShowType section header .icon-dayuhao1 {
+  float: left;
+}
+#ShowType section .nav {
+  width: 100%;
+  height: 91px;
+  padding: 0 30px;
+  margin-bottom: 10px;
+  line-height: 91px;
+  box-shadow: -0.05333rem 0 0.12rem 1px rgba(35, 35, 35, 0.12);
+}
+#ShowType section .nav #wrapper {
+  width: 560px;
+  overflow-x: auto;
+  float: left;
+}
+#ShowType section .nav #wrapper ul {
+  width: 2400px;
+}
+#ShowType section .nav #wrapper ul .active {
+  border-bottom: 4px solid #ff6743;
+  color: #ff6743;
+}
+#ShowType section .nav #wrapper ul li {
+  font-size: 32px;
+  padding: 0 10px;
+  margin-right: 30px;
+  float: left;
+}
+#ShowType section .nav #wrapper::-webkit-scrollbar {
+  display: none;
+}
+#ShowType section .nav .position {
+  float: right;
+  font-size: 30px;
+}
+#ShowType section .nav .position b {
+  margin-right: 10px;
+}
+#ShowType section .nav .position i {
+  font-size: 30px;
+}
+#ShowType section .context {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0 30px;
+}
+#ShowType section .context > div {
+  min-height: 290px;
+  margin: 5px 0 60px 0;
+}
+#ShowType section .context > div img {
+  float: left;
+  width: 210.1px;
+  height: 286.15px;
+}
+#ShowType section .context > div div {
+  float: right;
+  width: 446.3px;
+  height: 280.15px;
+  text-align: left;
+}
+#ShowType section .context > div div h3 {
+  font-size: 35.2px;
+  line-height: 80px;
+  font-weight: bold;
+}
+#ShowType section .context > div div h3 span {
+  font-size: 26px;
+  padding-left: 10px;
+  color: #666;
+}
+#ShowType section .context > div div h2 {
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 40px;
+}
+#ShowType section .context > div div h5 {
+  font-size: 26px;
+  color: #666;
+  line-height: 80px;
+}
+#ShowType section .context > div div h4 {
+  font-size: 36px;
+  color: #ff6743;
+}
+#ShowType section .context > div div h4 span {
+  font-size: 26px;
+  color: #ccc;
+}
 
-
-/*# sourceMappingURL=showtype.css.map */
+/*# sourceMappingURL=ShowType.css.map */

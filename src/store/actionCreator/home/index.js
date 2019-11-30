@@ -28,10 +28,16 @@ export const getShowTypeList=payload=>(
         payload
     }
 )
+export const getPicNav=payload=>(
+    {
+        type:"GET_PICNAV",
+        payload
+    }
+)
 export default{
     getPriority(){
         return(dispatch)=>{
-            this.$axios.get("/vip/index/getVipHomeSchedular",{
+            this.$axios.get("/n/vip/index/getVipHomeSchedular",{
                 params:{
                     version:"6.0.8",
                     referer:2,
@@ -39,13 +45,12 @@ export default{
             }).then(({data})=>{
                 const {priorList,version,referer}=data.data;
                 dispatch(getPriority({priorList,version,referer}))
-                
             })
         }
     },
     getHostShow(){
         return(dispatch)=>{
-            this.$axios.get("/home/index/getHotsRecommendList",{
+            this.$axios.get("/n/home/index/getHotsRecommendList",{
                 params:{
                     city_id:0,
                     version:"6.0.8",
@@ -59,7 +64,7 @@ export default{
     },
     getTourList(){
         return(dispatch)=>{
-            this.$axios.get("/home/index/getTourRecommendList",{
+            this.$axios.get("/n/home/index/getTourRecommendList",{
                 params:{
                     city_id:0,
                     version:"6.0.8",
@@ -73,7 +78,7 @@ export default{
     },
     getVipDiscount(){
         return(dispatch)=>{
-            this.$axios.get("/vip/index/getVipHomeSchedular",{
+            this.$axios.get("/n/vip/index/getVipHomeSchedular",{
                 params:{
                     version:"6.0.8",
                     referer:2,
@@ -86,7 +91,7 @@ export default{
     },
     getShowTypeList(){
         return(dispatch)=>{
-            this.$axios.get("/home/index/getFloorShow",{
+            this.$axios.get("/n/home/index/getFloorShow",{
                 params:{
                     city_id:0,
                     version:"6.0.8",
@@ -95,6 +100,21 @@ export default{
             }).then(({data})=>{
                 const showTypeList=data.data;
                 dispatch(getShowTypeList({showTypeList}))
+            })
+        }
+    },
+    getPicNav(){
+        return(dispatch)=>{
+            this.$axios.get("/n/home/index/getClassifyHome",{
+                params:{
+                    city_id:0,
+                    abbreviation:null,
+                    version:"6.0.8",
+                    referer:2,
+                }
+            }).then(({data})=>{
+                const {classify_list}=data.data;
+                dispatch(getPicNav({classify_list}))
             })
         }
     }

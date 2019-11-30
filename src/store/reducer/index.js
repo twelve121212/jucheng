@@ -1,8 +1,9 @@
-import{
-    combineReducers,
-}from "redux";
+import {
+    combineReducers
+} from "redux"
+import theater from "./theater";
+import showtype from "./showtype";
 import home from "./home";
-import theater from "./theater"
 import citychose from "./citychose"
 import calendar from "./calendar"
 export default combineReducers({
@@ -10,4 +11,5 @@ export default combineReducers({
     theater,
     citychose,
     calendar,
+    showtype,
 })
