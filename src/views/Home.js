@@ -4,8 +4,6 @@ import{
 }from "redux";
 import homeCreactor from "../store/actionCreator/home";
 import {connect} from "react-redux";
-
-import IScroll from 'iscroll';
 import {Link} from "react-router-dom"
 import "../assets/css/reset.css"
 import '../assets/iconfont/iconfont.css';
@@ -245,8 +243,9 @@ class Home extends React.Component {
                     {
                         console.log(v.list.shift())
                     }
-                    <div className="show-context">{ 
+                    <div className="show-context">{
                     v.list.map(a=>(
+                        
                         <div className="show-context-one" key={a.sche_id}>
                             <img src={a.pic} alt=""/>
                             <div className="show-context-title">{a.schedular_name}</div>
