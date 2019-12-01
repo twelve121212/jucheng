@@ -1,8 +1,10 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import IScroll from "iscroll"
 import theaterCreator,{upTheater} from "../store/actionCreator/theater";
 import "../assets/css/Theater/Theater.css"
+import "../assets/iconfont/iconfont.css"
 class Theater extends React.Component{
     render(){
         return (
@@ -26,10 +28,10 @@ class Theater extends React.Component{
                                             </div>
                                         </div>         
                                         <div className="position_right">
-                                            <i>...</i>
+                                            <i className="iconfont icon-sandian"></i>
                                         </div>
                                     </div>
-                                    <div className="position_detail">
+                                    <div id="wrapper" className="position_detail">
                                         {
                                             v.showList.map(value=>(
                                                 <div className="detail_one" key={value.id}>
@@ -48,11 +50,17 @@ class Theater extends React.Component{
         )
     }
     componentDidMount(){
-        this.props.getTheatreList.call(this);
+        this.props.getTheatreList.call(this);     
+    }
+    componentDidUpdate(){
+        this.myScroll = new IScroll('#wrapper',{
+            mouseWheel: true,
+            scrollX: true
+            });
     }
 }
 function mapStateToProps({theater}){
-    // console.log(11111,theater)
+    console.log(22222222,theater)
     return{
       page:theater.page,
       version:theater.version,
