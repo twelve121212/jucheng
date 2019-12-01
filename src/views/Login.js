@@ -124,7 +124,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {
         getUserInfo(phoneNum,loginPassword){
-            this.$axios.get("/userInfo",{
+            this.$axios.get("/l/userInfo",{
                 params:{
                     phoneNum,
                     loginPassword

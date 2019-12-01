@@ -1,7 +1,8 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import IScroll from "iscroll"
+import {Link} from "react-router-dom";
+// import IScroll from "iscroll"
 import theaterCreator,{upTheater} from "../store/actionCreator/theater";
 import "../assets/css/Theater/Theater.css"
 import "../assets/iconfont/iconfont.css"
@@ -12,7 +13,7 @@ class Theater extends React.Component{
                 <div className="header">
                     <div className="head">剧院</div>
                 </div>         
-                <div className="section">
+                <div id="section">
                     <ul className="wrap">
                         {
                             this.props.theatre_list.map(v=>( 
@@ -28,7 +29,7 @@ class Theater extends React.Component{
                                             </div>
                                         </div>         
                                         <div className="position_right">
-                                            <i className="iconfont icon-sandian"></i>
+                                            <Link className="iconfont icon-sandian icon"  to={{pathname:"search",state:{venue_id: v.vid,fromhome:false}}}></Link>
                                         </div>
                                     </div>
                                     <div id="wrapper" className="position_detail">
@@ -52,12 +53,12 @@ class Theater extends React.Component{
     componentDidMount(){
         this.props.getTheatreList.call(this);     
     }
-    componentDidUpdate(){
-        this.myScroll = new IScroll('#wrapper',{
-            mouseWheel: true,
-            scrollX: true
-            });
-    }
+    // componentDidUpdate(){
+    //     this.myScroll = new IScroll('#wrapper',{
+    //         mouseWheel: true,
+    //         scrollX: true
+    //         });
+    // }
 }
 function mapStateToProps({theater}){
     console.log(22222222,theater)

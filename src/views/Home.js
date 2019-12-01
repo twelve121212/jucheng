@@ -4,32 +4,28 @@ import{
 }from "redux";
 import homeCreactor from "../store/actionCreator/home";
 import {connect} from "react-redux";
-
-import IScroll from 'iscroll';
 import {Link} from "react-router-dom"
 import "../assets/css/reset.css"
 import '../assets/iconfont/iconfont.css';
 import "../assets/css/home.css"
 import lunbo from "../assets/Y_images/lunbo.jpg"
 import fenxiang from "../assets/Y_images/fenxiang.png"
-import yanchu from "../assets/Y_images/yanchu.jpg"
-import xunyan from "../assets/Y_images/xunyan.jpg"
 class Home extends React.Component {
     render() {
         return (
             <div id="home">
                 {/* 网页头部 */}
                 <div className="header">
-                    <Link className="position" to={"/citychose"}>
-                        <i id="container" className="iconfont icon-location"></i>全国
+                    <Link className="position"  to={{pathname:"citychose",state:{city: localStorage.city||this.props.city}}}>
+                        <i id="container" className="iconfont icon-location"></i>{localStorage.city||this.props.city}
                     </Link>
-                    <div className="search">
+                    <Link className="search" to="/search"> 
                         <i className="iconfont icon-soushuo"></i>
                         <span>搜索热门演出</span>
-                    </div>
-                    <div className="date">
+                    </Link>
+                    <Link className="date" to={"/calendar"}>
                         <i className="iconfont icon-riqi"></i>
-                    </div>
+                    </Link>
                     <div className="share">
                         <img src={fenxiang} alt=""/>
                     </div>
@@ -40,51 +36,15 @@ class Home extends React.Component {
                 </div>
                 {/* 图形中部导航 */}
                 <div className="picNav">
-                    <Link className="picnav vocol" to={{pathname:'/showtype',query:{cid:0,caid:35}}}>
-                        <i className="iconfont icon-huatongKTVmaikefengchanggemianxing"></i>
-                        <div>演唱会</div>
-                    </Link>
-
-                    <Link className="picnav music" to={{pathname:'/showtype',query:{cid:0,caid:79}}}>
-                        <i className="iconfont icon-yinfu"></i>
-                        <div>音乐剧</div>
-                    </Link>
-
-                    <Link className="picnav stage" to={{pathname:'/showtype',query:{cid:0,caid:37}}}>
-                        <i className="iconfont icon-xiaoji"></i>
-                        <div>舞台剧</div>
-                    </Link>
-
-                    <Link className="picnav children" to={{pathname:'/showtype',query:{cid:0,caid:38}}}>
-                        <i className="iconfont icon-baobao"></i>
-                        <div>儿童剧</div>
-                    </Link>
-
-                    <Link className="picnav concert" to={{pathname:'/showtype',query:{cid:0,caid:36}}}>
-                        <i className="iconfont icon-gangqin"></i>
-                        <div>音乐会</div>
-                    </Link>
-
-                    <div className="picnav happy">
-                        <i className="iconfont icon-qiabao"></i>
-                        <div>欢聚橙卡</div>
-                    </div>
-                    <div className="picnav orange">
-                        <i className="iconfont icon-xinbaniconshangchuan-"></i>
-                        <div>橙PLUS卡</div>
-                    </div>
-                    <div className="picnav vip">
-                        <i className="iconfont icon-zuanshi1"></i>
-                        <div>vip+专区</div>
-                    </div>
-                    <div className="picnav integral">
-                        <i className="iconfont icon-dianpushouquanxiaofangzi"></i>
-                        <div>积分兑换</div>
-                    </div>
-                    <div className="picnav joint">
-                        <i className="iconfont icon-pengyou1"></i>
-                        <div>拼团</div>
-                    </div>
+                    {
+                        this.props.classify_list.map((v,i)=>(
+                            <Link className="picnav vocol" key={i} to={{pathname:'/showtype',query:{cid:0,caid:v.category_id}}}>
+                                <img src={v.pic} alt=""/>
+                                <div>{v.name}</div>
+                            </Link>
+                        ))
+                    }
+                    
                 </div>
                 {/* 优先购票 */}
                 {/* <div className="priority">
@@ -119,7 +79,6 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div> */}
-
                 {/* 热门演出 */}
                 <div className="hotShow">
                     <div className="hotShow-title">
@@ -223,8 +182,8 @@ class Home extends React.Component {
                 </div>
                 {/* 演出类型 */}
                 <div>{
-                this.props.showTypeList.map(v=>(
-                    <div className="show" key={v.title}>
+                this.props.showTypeList.map((v,i)=>(
+                    <div className="show" key={i}>
                     <div className="show-title">
                         <span>{v.title}</span>
                         <i className="iconfont icon-dayuhao"></i>
@@ -243,11 +202,11 @@ class Home extends React.Component {
                         </div>
                     </div>
                     {
-                        console.log(v.list.shift())
+                        // console.log(v.list.shift())
                     }
-                    <div className="show-context">{ 
-                    v.list.map(a=>(
-                        <div className="show-context-one" key={a.sche_id}>
+                    <div className="show-context">{
+                    v.list.map((a,k)=>(
+                        <div className="show-context-one" key={k}>
                             <img src={a.pic} alt=""/>
                             <div className="show-context-title">{a.schedular_name}</div>
                             <div className="show-context-price">
@@ -269,11 +228,18 @@ class Home extends React.Component {
         this.props.getHostShow.call(this);
         this.props.getTourList.call(this);
         this.props.getVipDiscount.call(this);
-        this.props.getShowTypeList.call(this);
+        this.props.getShowTypeList.call(this); 
+        this.props.getPicNav.call(this);
+        // if(this.props.location.state !== undefined){
+        //     this.setState({
+        //         city:this.props.location.state.city
+        //     })
+        // }
+        saveCity(this)
     }
 }
 function mapStateToProps({home}){
-    console.log(home.showTypeList)
+    console.log(home)
     return{
         referer:home.referer,
         version:home.version,
@@ -284,9 +250,16 @@ function mapStateToProps({home}){
         discountList:home.discountList.slice(0,1),
         showType:home.showTypeList.list,
         showTypeList:home.showTypeList,
+        city:home.city,
+        classify_list:home.classify_list,
     }   
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+function saveCity(that){
+    if(that.props.location.state !== undefined && that.props.location.state !== null){
+        localStorage.city = that.props.location.state.city
+    } 
+}

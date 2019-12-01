@@ -5,21 +5,10 @@ function MyRoute() {
     return (
         <fragment>
             {
-<<<<<<< HEAD
-                router.config.map(v=>(
-                    <Route key={v.path} exact={v.exact} path={v.path} component={v.component}></Route>
-                ))
-                
-                
-            }
-            
-          </Switch>
-=======
                  router.config.map(v=>(
                    v.linkName?<Route key={v.path} exact={v.exact} path={v.path} component={v.component}></Route>:null
                 )) 
             }
->>>>>>> 7c325ba0de718de7b1fbddeb7ed865d1bd8a9684
         </fragment>
     )
 }

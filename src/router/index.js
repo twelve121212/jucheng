@@ -1,23 +1,19 @@
 import Home from "../views/Home";
 import Theater from "../views/Theater";
 import TicketBag from "../views/TicketBag";
-<<<<<<< HEAD
 import My from "../views/My"
 import Login from "../views/Login"
 import React from "react"
 import Setting from "../views/my/setting"
-=======
-import My from "../views/My";
-import Login from "../views/Login";
 import ShowDetail from "../views/ShowDetail";
 import ShowType from "../views/ShowType";
 import TourDetail from "../views/TourDetail";
 import Venue from "../views/Venue";
 import CityChose from "../views/CityChose";
+import Search from "../views/Search";
+import Calendar from "../views/Calendar"
 
 
-
->>>>>>> 7c325ba0de718de7b1fbddeb7ed865d1bd8a9684
 export default {
     className:"footer_one",
     activeClassName:"App-active",
@@ -61,15 +57,6 @@ export default {
             component:Login
         },
         {
-<<<<<<< HEAD
-            path:"*",
-            // linkName:"404",
-            component:()=><div>404,页面不存在</div>
-=======
-            path:"/login",
-            component:Login
-        },
-        {
             path:'/showtype',
             component:ShowType
         },
@@ -88,7 +75,18 @@ export default {
         {
             path:'/citychose',
             component:CityChose
->>>>>>> 7c325ba0de718de7b1fbddeb7ed865d1bd8a9684
+        },
+        {
+            path:'/search',
+            component:Search
+        },
+        {
+            path:'/search/keywords',
+            component:Search
+        },
+        {
+            path:'/calendar',
+            component:Calendar
         }
         // {
         //     path:"*",

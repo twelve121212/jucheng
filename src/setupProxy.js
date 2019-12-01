@@ -8,6 +8,14 @@ module.exports = function(app){
             }
         })    
     )
+    app.use("/l",proxy({
+        target:"http://127.0.0.1:8090",
+        changeOrigin: true,
+        pathRewrite:{
+            "^/l":""
+        }
+    })    
+    )
     app.use("/n",proxy({
         target:"https://api.juooo.com",
         changeOrigin:true,

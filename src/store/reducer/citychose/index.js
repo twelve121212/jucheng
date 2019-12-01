@@ -9,5 +9,8 @@ export default (state = stateInit,{type,payload})=>{
     if(type === "UP_CITY"){
         state.hot_List = payload.hot_List
     }
+    if(type === "GPS_CITY"){
+        state.gpsCity = payload.gpsCity
+    }
     return state;
 }
