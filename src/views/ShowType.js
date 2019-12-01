@@ -62,8 +62,6 @@ class ShowType extends React.Component{
                                 </div>
                             })
                         }
-                       
-                        
                     </div>
                 </section>
             </div>

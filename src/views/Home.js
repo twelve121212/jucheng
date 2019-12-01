@@ -233,7 +233,7 @@ class Home extends React.Component {
     }
 }
 function mapStateToProps({home}){
-     console.log(home)
+    console.log(home)
     return{
         referer:home.referer,
         version:home.version,
