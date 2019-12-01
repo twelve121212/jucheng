@@ -68,7 +68,7 @@ class Search extends React.Component{
                                             <span>{v.show_time_bottom}</span>
                                             </h3>:<h3>2019.{v.show_time_top}</h3>
                                         }
-                                        <h2>{v.name}</h2>
+                                        <h2 dangerouslySetInnerHTML={{__html:v.name}}></h2>
                                         <h5>
                                         <span>{v.city_name}</span> | <span>{v.venue_name}</span>
                                         </h5>

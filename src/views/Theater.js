@@ -13,7 +13,7 @@ class Theater extends React.Component{
                 <div className="header">
                     <div className="head">剧院</div>
                 </div>         
-                <div className="section">
+                <div id="section">
                     <ul className="wrap">
                         {
                             this.props.theatre_list.map(v=>( 

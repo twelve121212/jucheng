@@ -19,7 +19,7 @@ export const upGpsCity = payload=>(
 export default{
     getHotCityList(){
         return(dispatch)=>{
-            this.$axios.get("./city/city/getHotCityList",{
+            this.$axios.get("/n/city/city/getHotCityList",{
                 params:{
                     version:"6.0.8",
                     referer:1,
@@ -34,7 +34,7 @@ export default{
     },
     getCityList(){
         return(dispatch)=>{
-            this.$axios.get("./city/city/getSortedCityList",{
+            this.$axios.get("/n/city/city/getSortedCityList",{
                 params:{
                     version:"6.0.8",
                     referer:1,

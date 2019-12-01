@@ -29,6 +29,7 @@
 #search .wrap #header_search .header_right {
   font-size: 28px;
   color: #666;
+  cursor: pointer;
 }
 #search .wrap #section_search {
   font-size: 26px;

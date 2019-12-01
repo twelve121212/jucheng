@@ -13,7 +13,7 @@ export const searchResult = payload=>(
 export default{
     getHotSearchList(){
         return(dispatch)=>{
-            this.$axios.get("/Show/Search/getHotWord",{
+            this.$axios.get("/n/Show/Search/getHotWord",{
                 params:{
                     version:"6.0.8",
                     referer:1,
@@ -29,7 +29,7 @@ export default{
     getShowList(keywords,venue_id){
         // console.log(keywords)
         return(dispatch)=>{
-            this.$axios.get("/Show/Search/getShowList",{
+            this.$axios.get("/n/Show/Search/getShowList",{
                 params:{
                     keywords,
                     venue_id

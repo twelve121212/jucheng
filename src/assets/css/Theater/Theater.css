@@ -16,15 +16,15 @@
   text-align: center;
 }
 
-.section {
+#section {
   padding-top: 88px;
   padding-bottom: 100px;
 }
-.section .wrap {
+#section .wrap {
   width: 650px;
   margin: 0 auto;
 }
-.section .wrap .position {
+#section .wrap .position {
   margin-top: 24px;
   margin-bottom: 30px;
   padding:42px 33px 42px 33px;
@@ -32,46 +32,46 @@
   border: 1px solid #ccc;
   background: #fff;
 }
-.section .wrap .position .position_name {
+#section .wrap .position .position_name {
   display: flex;
   justify-content: space-between;
 }
-.section .wrap .position .position_name .position_left {
+#section .wrap .position .position_name .position_left {
   display: flex;
 }
-.section .wrap .position .position_name .position_left .position_img img {
+#section .wrap .position .position_name .position_left .position_img img {
   width: 100px;
   height: 100px;
   border-radius: 8px
 }
-.section .wrap .position .position_name .position_left .position_describe {
+#section .wrap .position .position_name .position_left .position_describe {
   margin-left: 16px;
 }
-.section .wrap .position .position_name .position_left .position_describe h3 {
+#section .wrap .position .position_name .position_left .position_describe h3 {
   font-size: 34px;
   padding: 6px 0 10px;
 }
-.section .wrap .position .position_name .position_left .position_describe p {
+#section .wrap .position .position_name .position_left .position_describe p {
   float: left;
   font-size: 24px;
   color: #666;
 }
-.section .wrap .position .position_name .position_right .icon{
+#section .wrap .position .position_name .position_right .icon{
   font-size: 24px;
   line-height: 80px;
 }
-.section .wrap .position .position_detail {
+#section .wrap .position .position_detail {
   display: flex;
   width: 100%;
   overflow-x: scroll;
 }
-.section .wrap .position .position_detail::-webkit-scrollbar{
+#section .wrap .position .position_detail::-webkit-scrollbar{
   display: none;
 }
-.section .wrap .position .position_detail .detail_one {
+#section .wrap .position .position_detail .detail_one {
   margin-top: 26px;
 }
-.section .wrap .position .position_detail .detail_one h4 {
+#section .wrap .position .position_detail .detail_one h4 {
   width: 225px;
   /* background: blueviolet; */
   padding-bottom: 28px;
@@ -79,10 +79,10 @@
   border-bottom: 4px solid #ebebeb;
   color: #b3b3b3;
 }
-.section .wrap .position .position_detail .detail_one img {
+#section .wrap .position .position_detail .detail_one img {
   width: 211px;
   height: 296px;
-  background: blue;
+  /* background: blue; */
 }
 
 

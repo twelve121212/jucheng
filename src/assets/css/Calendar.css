@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box; }
+
+.show-calendar .calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97px;
+  font-size: 28px;
+  color: #232323;
+  background-color: #fff;
+  border-bottom: 1px solid #ebebeb; }
+  .show-calendar .calendar-header i {
+    width: 90px;
+    font-size: 36px; }
+  .show-calendar .calendar-header span {
+    width: 550.66px;
+    font-size: 36px; }
+.show-calendar .nav {
+  width: 100%;
+  height: 91px;
+  padding: 0 30px;
+  margin-bottom: 10px;
+  line-height: 91px;
+  box-shadow: -0.05333rem 0 0.12rem 1px rgba(35, 35, 35, 0.12); }
+  .show-calendar .nav #wrapper {
+    width: 560px;
+    overflow-x: auto;
+    float: left; }
+    .show-calendar .nav #wrapper ul {
+      width: 2400px; }
+      .show-calendar .nav #wrapper ul .active {
+        border-bottom: 4px solid #ff6743;
+        color: #ff6743; }
+      .show-calendar .nav #wrapper ul li {
+        font-size: 32px;
+        padding: 0 10px;
+        margin-right: 30px;
+        float: left; }
+  .show-calendar .nav #wrapper::-webkit-scrollbar {
+    display: none; }
+  .show-calendar .nav .position {
+    float: right;
+    font-size: 30px; }
+    .show-calendar .nav .position b {
+      margin-right: 10px; }
+    .show-calendar .nav .position i {
+      font-size: 30px; }
+.show-calendar .calendar {
+  width: 100%; }
+  .show-calendar .calendar .calendar-month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 94px;
+    font-size: 28px;
+    color: #242424;
+    background-color: #fff; }
+    .show-calendar .calendar .calendar-month i {
+      width: 166.66px; }
+    .show-calendar .calendar .calendar-month span {
+      width: 416.66px; }
+  .show-calendar .calendar .calendar-week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    font-size: 30px;
+    color: #242424; }
+    .show-calendar .calendar .calendar-week span {
+      margin: 0 10.25px;
+      width: 80px; }
+    .show-calendar .calendar .calendar-week span:nth-child(1) {
+      color: #ff6743; }
+    .show-calendar .calendar .calendar-week span:nth-child(7) {
+      color: #ff6743; }
+  .show-calendar .calendar .calendar-day {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    padding: 32px 22.5px 0;
+    background-color: #fff; }
+    .show-calendar .calendar .calendar-day span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 20px; }
+    .show-calendar .calendar .calendar-day .span-active {
+      background-color: red; }
+.show-calendar .context {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0 30px; }
+  .show-calendar .context > div {
+    min-height: 290px;
+    margin: 5px 0 60px 0; }
+    .show-calendar .context > div img {
+      float: left;
+      width: 210.1px;
+      height: 286.15px;
+      border-radius: 10px; }
+    .show-calendar .context > div div {
+      float: right;
+      width: 446.3px;
+      height: 280.15px;
+      text-align: left; }
+      .show-calendar .context > div div h3 {
+        font-size: 34px;
+        line-height: 80px;
+        font-weight: bold;
+        color: #232323; }
+        .show-calendar .context > div div h3 span {
+          font-size: 26px;
+          padding-left: 10px;
+          color: #666; }
+      .show-calendar .context > div div h2 {
+        font-weight: bold;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 40px;
+        font-size: 34px;
+        color: #232323; }
+      .show-calendar .context > div div h5 {
+        font-size: 26px;
+        color: #666;
+        line-height: 80px; }
+      .show-calendar .context > div div h4 {
+        font-size: 36px;
+        color: #ff6743; }
+        .show-calendar .context > div div h4 span {
+          font-size: 26px;
+          color: #ccc; }
+
+/*# sourceMappingURL=Calendar.css.map */

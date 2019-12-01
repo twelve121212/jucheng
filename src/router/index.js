@@ -9,6 +9,7 @@ import TourDetail from "../views/TourDetail";
 import Venue from "../views/Venue";
 import CityChose from "../views/CityChose";
 import Search from "../views/Search";
+import Calendar from "../views/Calendar"
 
 
 export default {
@@ -47,7 +48,7 @@ export default {
             component:Login
         },
         {
-            path:'/showtype/:type',
+            path:'/showtype',
             component:ShowType
         },
         {
@@ -73,6 +74,10 @@ export default {
         {
             path:'/search/keywords',
             component:Search
+        },
+        {
+            path:'/calendar',
+            component:Calendar
         }
         // {
         //     path:"*",
