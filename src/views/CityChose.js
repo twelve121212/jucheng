@@ -8,9 +8,9 @@ import "../assets/iconfont/iconfont.css"
 class CityChose extends React.Component{
     render(){
         return (
-            <div>
+            <div id="city_chose">
                 <div id="header">
-                    <Link className="iconfont icon-dayuhao1 back" to={'/'}></Link>
+                    <Link className="iconfont icon-dayuhao1 back" to={{pathname:"/",state:{city:this.props.location.state.city}}}></Link>
                     <div className="head">城市选择</div>
                 </div>         
                 <div id="section">
@@ -19,7 +19,7 @@ class CityChose extends React.Component{
                             <div className="now_city">
                                 <p>当前城市</p>
                                 <div className="citys_name">
-                                    <div className="city_name">全国</div>
+                                    <Link className="city_name" to={{pathname:"/",state:{city:"全国"}}}>全国</Link>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@ class CityChose extends React.Component{
                             <div className="now_city">
                                 <p>定位城市</p>
                                 <div className="citys_name">
-                                    <div className="city_name">北京</div>
+                                    <Link className="city_name" style={{color:"orange"}} to={{pathname:"/",state:{city:this.props.gpsCity}}}>{this.props.gpsCity}</Link>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ class CityChose extends React.Component{
                                 <div className="citys_name">
                                     {
                                         this.props.hot_city_List.map(v=>(   
-                                            <div className="city_name" key={v.id}>{v.name}</div>
+                                            <Link to={{pathname:"/",state:{city:v.name}}}className="city_name" key={v.id}>{v.name}</Link>
                                         ))
                                     }
                                 </div>
@@ -53,7 +53,9 @@ class CityChose extends React.Component{
                                     <ul>
                                         {
                                             v.list.map(value=>(
-                                                <li>{value.name}</li>
+                                                <Link key={value.id} to={{pathname:"/",state:{city:value.name}}}>
+                                                    <li>{value.name}</li>
+                                                </Link> 
                                             ))
                                         }
                                     </ul>
@@ -67,16 +69,19 @@ class CityChose extends React.Component{
     }
     componentDidMount(){
         this.props.getHotCityList.call(this);
-        this.props.getCityList.call(this);  
+        this.props.getCityList.call(this);
+        this.props.getGpsCity.call(this)
     }
 }
 function mapStateToProps({citychose}){
-    // console.log(11111222222,citychose)
+    // console.log(11111222222,citychose.gpsCity)
     return{
-      version:citychose.version,
-      referer:citychose.referer,
-      hot_city_List:citychose.hot_city_List,
-      hot_List:Object.values(citychose.hot_List)
+        version:citychose.version,
+        referer:citychose.referer,
+        hot_city_List:citychose.hot_city_List,
+        hot_List:Object.values(citychose.hot_List),
+        gpsCity:citychose.gpsCity,
+
     }
 }
 function mapDispatchToProps(dispatch){

@@ -20,13 +20,13 @@ class Home extends React.Component {
             <div id="home">
                 {/* 网页头部 */}
                 <div className="header">
-                    <Link className="position" to={"/citychose"}>
-                        <i id="container" className="iconfont icon-location"></i>全国
+                    <Link className="position"  to={{pathname:"citychose",state:{city: localStorage.city||this.props.city}}}>
+                        <i id="container" className="iconfont icon-location"></i>{localStorage.city||this.props.city}
                     </Link>
-                    <div className="search">
+                    <Link className="search" to="/search"> 
                         <i className="iconfont icon-soushuo"></i>
                         <span>搜索热门演出</span>
-                    </div>
+                    </Link>
                     <div className="date">
                         <i className="iconfont icon-riqi"></i>
                     </div>
@@ -243,7 +243,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                     {
-                        console.log(v.list.shift())
+                        // console.log(v.list.shift())
                     }
                     <div className="show-context">{ 
                     v.list.map(a=>(
@@ -269,11 +269,17 @@ class Home extends React.Component {
         this.props.getHostShow.call(this);
         this.props.getTourList.call(this);
         this.props.getVipDiscount.call(this);
-        this.props.getShowTypeList.call(this);
+        this.props.getShowTypeList.call(this); 
+        // if(this.props.location.state !== undefined){
+        //     this.setState({
+        //         city:this.props.location.state.city
+        //     })
+        // }
+        saveCity(this)
     }
 }
 function mapStateToProps({home}){
-    console.log(home.showTypeList)
+    // console.log(55555555,home)
     return{
         referer:home.referer,
         version:home.version,
@@ -284,9 +290,15 @@ function mapStateToProps({home}){
         discountList:home.discountList.slice(0,1),
         showType:home.showTypeList.list,
         showTypeList:home.showTypeList,
+        city:home.city,
     }   
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+function saveCity(that){
+    if(that.props.location.state !== undefined && that.props.location.state !== null){
+        localStorage.city = that.props.location.state.city
+    } 
+}

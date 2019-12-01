@@ -1,6 +1,7 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import IScroll from "iscroll"
 import theaterCreator,{upTheater} from "../store/actionCreator/theater";
 import "../assets/css/Theater/Theater.css"
@@ -28,7 +29,7 @@ class Theater extends React.Component{
                                             </div>
                                         </div>         
                                         <div className="position_right">
-                                            <i className="iconfont icon-sandian"></i>
+                                            <Link className="iconfont icon-sandian icon"  to={{pathname:"search",state:{venue_id: v.vid,fromhome:false}}}></Link>
                                         </div>
                                     </div>
                                     <div id="wrapper" className="position_detail">

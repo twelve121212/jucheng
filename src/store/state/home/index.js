@@ -8,4 +8,5 @@ export default{
     allList:[],
     discountList:[],
     showTypeList:[],
+    city:"全国",
 }
