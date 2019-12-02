@@ -217,7 +217,7 @@ class Home extends React.Component {
     }
     componentDidMount(){
         this.props.getPriority.call(this);
-        this.props.getHostShow.call(this,localStorage.city_id);
+        this.props.getHostShow.call(this);
         this.props.getTourList.call(this);
         this.props.getVipDiscount.call(this);
         this.props.getShowTypeList.call(this); 
@@ -245,8 +245,7 @@ function mapStateToProps({home}){
         city:home.city,
         classify_list:home.classify_list,
         list:home.list,
-        city_id:home.city_id,
-    }
+    } 
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
