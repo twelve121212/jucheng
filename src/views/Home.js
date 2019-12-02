@@ -213,7 +213,7 @@ class Home extends React.Component {
                                 }
                             </div>
                             {
-                                console.log(v.list.shift())
+                                // console.log(v.list.shift())
                             }
                             <div className="show-context">{
                                 v.list.map((a,k)=>(
