@@ -88,8 +88,9 @@
       width: 58px;
       height: 58px;
       margin: 20px; }
-    .show-calendar .calendar .calendar-day .span-active {
-      background-color: red; }
+    .show-calendar .calendar .calendar-day .active {
+      background-color: orange;
+      border-radius: 50%; }
 .show-calendar .context {
   flex: 1;
   overflow-y: scroll;
