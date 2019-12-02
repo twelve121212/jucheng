@@ -1,0 +1,54 @@
+.setting {
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6; }
+  .setting .setting-header {
+    width: 100%;
+    height: 88px;
+    background: #fff;
+    line-height: 88px;
+    margin-bottom: 30px; }
+    .setting .setting-header .iconfont {
+      display: block;
+      float: left;
+      font-size: 40px;
+      color: #212121;
+      margin-left: 30px; }
+    .setting .setting-header .icon-sandian {
+      margin-left: 210px; }
+    .setting .setting-header .setting-title {
+      display: block;
+      float: left;
+      font-size: 30px;
+      margin-left: 260px; }
+  .setting .setting-main {
+    width: 100%;
+    height: 741px; }
+    .setting .setting-main .setting-main-top, .setting .setting-main .setting-main-bottom {
+      width: 100%;
+      background: #fff; }
+      .setting .setting-main .setting-main-top li, .setting .setting-main .setting-main-bottom li {
+        margin: auto;
+        width: 688px;
+        height: 90.4px;
+        border-bottom: 1px solid #ebebeb; }
+        .setting .setting-main .setting-main-top li span, .setting .setting-main .setting-main-bottom li span {
+          font-size: 31px;
+          line-height: 90px;
+          display: block;
+          float: left;
+          margin-left: 20px; }
+      .setting .setting-main .setting-main-top .space, .setting .setting-main .setting-main-bottom .space {
+        margin-bottom: 30px;
+        border: none; }
+  .setting .setting-footer {
+    width: 688px;
+    height: 90px;
+    margin: 40px auto;
+    background: #fff;
+    outline: none;
+    border: none;
+    font-size: 30px;
+    color: #212121; }
+
+/*# sourceMappingURL=setting.css.map */

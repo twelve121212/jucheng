@@ -7,4 +7,5 @@ export default{
     showTypeList:[],
     city:"全国",
     classify_list:[],
+    list:[],
 }

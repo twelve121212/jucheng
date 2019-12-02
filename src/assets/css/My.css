@@ -1,0 +1,133 @@
+.my {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #f5f5f5; }
+  .my .bg-top {
+    width: 100%;
+    height: 410px;
+    background: url(../images/my_bg.png);
+    background-size: 100%; }
+  .my .setup {
+    position: absolute;
+    right: 40px;
+    top: 30px; }
+    .my .setup .iconfont {
+      font-size: 34px;
+      color: #fefefe; }
+  .my .my-info-wrap {
+    position: absolute;
+    left: 30px;
+    top: 110px;
+    width: 690px;
+    height: 310px;
+    background: #fff;
+    box-shadow: 0 0.05333rem 0.4rem 0.02667rem rgba(35, 35, 35, 0.08);
+    border-radius: 12px; }
+    .my .my-info-wrap .my-info-header {
+      width: 690px;
+      height: 101px;
+      padding: 0 30px; }
+      .my .my-info-wrap .my-info-header span {
+        display: block;
+        text-align: left;
+        text-indent: 150px; }
+      .my .my-info-wrap .my-info-header .my-info-username {
+        margin-top: 24px;
+        color: #232323;
+        font-size: 30px;
+        font-weight: 660; }
+      .my .my-info-wrap .my-info-header .my-info-id {
+        margin-top: 10px;
+        color: #999999; }
+    .my .my-info-wrap .my-info-ordinarymember {
+      width: 162px;
+      height: 52px;
+      position: absolute;
+      background: linear-gradient(-45deg, #f5dea9, #f8d583);
+      border-radius: 26px 0 0 26px/26px;
+      line-height: 52px;
+      font-weight: 660;
+      font-size: 26px;
+      right: 0;
+      top: 80px; }
+    .my .my-info-wrap .my-info-count {
+      position: absolute;
+      bottom: 0;
+      width: 690px;
+      height: 162px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row; }
+      .my .my-info-wrap .my-info-count .my-info-count-content {
+        width: 172px;
+        height: 162px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .my .my-info-wrap .my-info-count .my-info-count-content .my-info-count-data {
+          width: 172px;
+          height: 46px;
+          font-size: 40px;
+          color: #ff6734;
+          margin-bottom: 12px; }
+        .my .my-info-wrap .my-info-count .my-info-count-content .my-info-count-item {
+          width: 174px;
+          height: 32px;
+          color: #666; }
+        .my .my-info-wrap .my-info-count .my-info-count-content .open {
+          font-size: 26px;
+          color: #232323;
+          margin: 15px 0 0 0; }
+      .my .my-info-wrap .my-info-count .split {
+        display: inline-block;
+        margin-top: 66px;
+        width: 1px;
+        height: 60px;
+        border-right: 2px solid #ebebeb; }
+      .my .my-info-wrap .my-info-count .split-thin {
+        border-right: solid 1px #ebebeb; }
+  .my .headcard {
+    position: absolute;
+    display: block;
+    width: 116px;
+    height: 116px;
+    top: 80px;
+    left: 60px;
+    border-radius: 50%; }
+  .my .my-vip {
+    display: block;
+    width: 742px;
+    height: 180px;
+    margin: 10px auto; }
+    .my .my-vip .my-vip-pic {
+      width: 100%;
+      height: 100%; }
+  .my .my-info-other {
+    height: 376px;
+    width: 692px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .my .my-info-other .my-info-other-first {
+      width: 692px;
+      height: 176px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      background: #fff;
+      border-radius: 12px; }
+    .my .my-info-other .my-info-other-first-main {
+      width: 172.6px;
+      height: 102px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .my .my-info-other .my-info-other-first-main .iconfont {
+        font-size: 56px; }
+      .my .my-info-other .my-info-other-first-main .my-info-other-explain {
+        color: #232323; }
+
+/*# sourceMappingURL=My.css.map */
