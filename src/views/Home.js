@@ -26,9 +26,9 @@ class Home extends React.Component {
                     <Link className="date" to={"/calendar"}>
                         <i className="iconfont icon-riqi"></i>
                     </Link>
-                    <div className="share">
+                    <Link className="share" to={"/map"}>
                         <img src={fenxiang} alt=""/>
-                    </div>
+                    </Link>
                 </div>
                 {/* 轮播图 */}
                 <div className="swiper">
@@ -80,24 +80,27 @@ class Home extends React.Component {
                         </div>
                     </div> */}
                 {/* 热门演出 */}
-                <div className="hotShow">
-                    <div className="hotShow-title">
-                        <span>热门演出</span>
-                        <i className="iconfont icon-dayuhao"></i>
-                    </div>
-                    <div id="abc">
-                    <div className="hotShow-center" >
-                        {
-                            this.props.hots_show_list.map(v=>(
-                                <div className="hotShow-context" key={v.schedular_url}>
-                                    <img src={v.pic} alt=""/>
-                                    <div className="hotShow-headline">{v.show_name}</div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                    </div>
-                </div>
+                {(this.props.hots_show_list.length>0)?
+                    <div className="hotShow">
+                        <div className="hotShow-title">
+                            <span>热门演出</span>
+                            <i className="iconfont icon-dayuhao"></i>
+                        </div>
+                        <div id="abc">
+                        <div className="hotShow-center" >
+                            {
+                                this.props.hots_show_list.map(v=>(
+                                    <div className="hotShow-context" key={v.schedular_url}>
+                                        <img src={v.pic} alt=""/>
+                                        <div className="hotShow-headline">{v.show_name}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        </div>
+                    </div>:null
+                }
+                
                 {/* 巡回演出 */}
                 <div className="tourShow">
                     <div className="tourShow-title">
@@ -181,65 +184,76 @@ class Home extends React.Component {
                     </div>
                 </div>
                 {/* 演出类型 */}
-                <div>{
-                this.props.showTypeList.map((v,i)=>(
-                    <div className="show" key={i}>
-                    <div className="show-title">
-                        <span>{v.title}</span>
-                        <i className="iconfont icon-dayuhao"></i>
-                    </div>
-                    <div className="show-center">
-                        <div className="show-center-left">
-                            <img src={v.list[0].pic}/>
-                        </div>
-                        <div className="show-center-right">
-                            <div className="show-date">
-                                <span>2019/{v.list[0].date}</span>
-                                <i>{v.list[0].week}</i>
+                {(this.props.showTypeList.length>0)?
+                    <div>{
+                        this.props.showTypeList.map((v,i)=>(
+                            (v.list.length>0)?
+                            <div className="show" key={i}>
+                            <div className="show-title">
+                                <span>{v.title}</span>
+                                <i className="iconfont icon-dayuhao"></i>
                             </div>
-                            <div className="show-headline">{v.list[0].schedular_name}</div>
-                            <div className="show-address">{v.list[0].city_name} | {v.list[0].venue_name}</div>
-                        </div>
-                    </div>
-                    {
-                        // console.log(v.list.shift())
-                    }
-                    <div className="show-context">{
-                    v.list.map((a,k)=>(
-                        <div className="show-context-one" key={k}>
-                            <img src={a.pic} alt=""/>
-                            <div className="show-context-title">{a.schedular_name}</div>
-                            <div className="show-context-price">
-                                <span>¥{a.low_price}</span>
-                                <i>起</i>
+                            <div className="show-center">
+                                
+                                {/* {console.log(v.list[0])} */}
+                                {(v.list.length>0)?
+                                <div className="show-center">
+                                    <div className="show-center-left">
+                                        <img src={v.list[0].pic}/>
+                                    </div>
+                                    <div className="show-center-right">
+                                        <div className="show-date">
+                                            <span>2019/{v.list[0].date}</span>
+                                            <i>{v.list[0].week}</i>
+                                        </div>
+                                        <div className="show-headline">{v.list[0].schedular_name}</div>
+                                        <div className="show-address">{v.list[0].city_name} | {v.list[0].venue_name}</div>
+                                    </div>
+                                </div>:null
+                                }
                             </div>
-                        </div> 
-                    ))
-                    }</div>
-                </div>
-                ))
+                            {
+                                console.log(v.list.shift())
+                            }
+                            <div className="show-context">{
+                                v.list.map((a,k)=>(
+                                    <div className="show-context-one" key={k}>
+                                        <img src={a.pic} alt=""/>
+                                        <div className="show-context-title">{a.schedular_name}</div>
+                                        <div className="show-context-price">
+                                            <span>¥{a.low_price}</span>
+                                            <i>起</i>
+                                        </div>
+                                    </div> 
+                                ))
+                                }</div>
+                        </div>:null
+                        ))
+                        }
+                    </div>:null  
                 }
-                </div>    
+                
             </div>
         )
     }
     componentDidMount(){
-        this.props.getPriority.call(this);
-        this.props.getHostShow.call(this);
-        this.props.getTourList.call(this);
-        this.props.getVipDiscount.call(this);
-        this.props.getShowTypeList.call(this); 
-        this.props.getPicNav.call(this);
+        saveCity(this)
+        this.props.getPriority.call(this,city_id);
+        this.props.getHostShow.call(this,city_id);
+        this.props.getTourList.call(this,city_id);
+        this.props.getVipDiscount.call(this,city_id);
+        this.props.getShowTypeList.call(this,city_id); 
+        this.props.getPicNav.call(this,city_id);
         // if(this.props.location.state !== undefined){
         //     this.setState({
         //         city:this.props.location.state.city
         //     })
         // }
-        saveCity(this)
+        
     }
 }
 function mapStateToProps({home}){
-    console.log(home)
+    console.log(home.showTypeList)
     return{
         referer:home.referer,
         version:home.version,
@@ -258,8 +272,10 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+let city_id = 0
 function saveCity(that){
     if(that.props.location.state !== undefined && that.props.location.state !== null){
-        localStorage.city = that.props.location.state.city
+        localStorage.city = that.props.location.state.city;
+        localStorage.city_id = city_id = that.props.location.state.city_id;
     } 
 }

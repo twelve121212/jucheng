@@ -35,10 +35,11 @@ export const getPicNav=payload=>(
     }
 )
 export default{
-    getPriority(){
+    getPriority(city_id=0){
         return(dispatch)=>{
             this.$axios.get("/n/vip/index/getVipHomeSchedular",{
                 params:{
+                    city_id,
                     version:"6.0.8",
                     referer:2,
                 }
@@ -48,11 +49,12 @@ export default{
             })
         }
     },
-    getHostShow(){
+    getHostShow(city_id=0){
+        console.log(city_id)
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getHotsRecommendList",{
                 params:{
-                    city_id:0,
+                    city_id,
                     version:"6.0.8",
                     referer:2,
                 }
@@ -62,11 +64,11 @@ export default{
             })
         }
     },
-    getTourList(){
+    getTourList(city_id=0){
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getTourRecommendList",{
                 params:{
-                    city_id:0,
+                    city_id,
                     version:"6.0.8",
                     referer:2,
                 }
@@ -76,10 +78,11 @@ export default{
             })
         }
     },
-    getVipDiscount(){
+    getVipDiscount(city_id=0){
         return(dispatch)=>{
             this.$axios.get("/n/vip/index/getVipHomeSchedular",{
                 params:{
+                    city_id,
                     version:"6.0.8",
                     referer:2,
                 }
@@ -89,11 +92,11 @@ export default{
             })
         }
     },
-    getShowTypeList(){
+    getShowTypeList(city_id=0){
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getFloorShow",{
                 params:{
-                    city_id:0,
+                    city_id,
                     version:"6.0.8",
                     referer:2,
                 }
@@ -103,11 +106,11 @@ export default{
             })
         }
     },
-    getPicNav(){
+    getPicNav(city_id=0){
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getClassifyHome",{
                 params:{
-                    city_id:0,
+                    city_id,
                     abbreviation:null,
                     version:"6.0.8",
                     referer:2,

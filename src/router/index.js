@@ -12,7 +12,7 @@ import Venue from "../views/Venue";
 import CityChose from "../views/CityChose";
 import Search from "../views/Search";
 import Calendar from "../views/Calendar"
-
+import Map from "../views/Map"
 
 export default {
     className:"footer_one",
@@ -87,6 +87,10 @@ export default {
         {
             path:'/calendar',
             component:Calendar
+        },
+        {
+            path:'/map',
+            component:Map
         }
         // {
         //     path:"*",
