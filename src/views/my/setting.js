@@ -56,7 +56,10 @@ export default class Setting extends React.Component{
                         </li>
                     </div>
                 </div>
-                <button class="setting-footer">退出登录</button>
+                <button class="setting-footer" onClick={()=>{
+                    localStorage.removeItem("userInfo")
+                    this.props.history.push("/")
+                }}>退出登录</button>
             </div>
         )
     }
