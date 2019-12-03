@@ -225,6 +225,7 @@ class Home extends React.Component {
         )
     }
     componentDidMount(){
+        saveCity(this)
         this.props.getPriority.call(this,city_id);
         this.props.getHostShow.call(this,city_id);
         this.props.getTourList.call(this,city_id);
@@ -237,7 +238,7 @@ class Home extends React.Component {
         //         city:this.props.location.state.city
         //     })
         // }
-        saveCity(this)
+        
     }
 }
 function mapStateToProps({home}){

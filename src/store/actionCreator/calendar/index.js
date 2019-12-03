@@ -1,3 +1,6 @@
+import { string } from "_postcss-selector-parser@6.0.2@postcss-selector-parser";
+import { stringify } from "querystring";
+
 export const getDay=payload=>({
         type:"GET_DAY",
         payload,
@@ -10,6 +13,7 @@ export const getShowList=payload=>({
     type:"GET_SHOWLIST",
     payload,
 })
+let category_id=0;
 export default{
     getDay(year=2019,month=12){
         if(month>12){
@@ -48,8 +52,14 @@ export default{
             })
         }
     },
-    getShowList(category=0,start_time){
-        console.log(category,start_time)
+    getShowList(category=0,start_time,flag_nav,flag_day){
+        console.log(2222,category,start_time)
+        if(flag_nav===1){
+            category_id = category
+        }
+        if(flag_day===1){
+            category = category_id
+        }
         return(dispatch)=>{
             this.$axios.get("/n/Show/Search/getShowList",{
                 params:{
