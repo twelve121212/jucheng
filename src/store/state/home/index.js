@@ -8,4 +8,5 @@ export default{
     city:"全国",
     classify_list:[],
     list:[],
+    slide_list:[],
 }

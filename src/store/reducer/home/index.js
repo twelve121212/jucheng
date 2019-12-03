@@ -14,6 +14,7 @@ export default(state=stateInit,{type,payload})=>{
         state.showTypeList=payload.showTypeList;
     }else if(type==="GET_PICNAV"){
         state.classify_list=payload.classify_list;
+        state.slide_list=payload.slide_list;
     }else if(type==="GET_SHOWLIST"){
         state.list=payload.list
     }
