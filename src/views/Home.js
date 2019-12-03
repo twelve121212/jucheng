@@ -26,9 +26,9 @@ class Home extends React.Component {
                     <Link className="date" to={"/calendar"}>
                         <i className="iconfont icon-riqi"></i>
                     </Link>
-                    <Link className="share" to={"/map"}>
+                    <div className="share">
                         <img src={fenxiang} alt=""/>
-                    </Link>
+                    </div>
                 </div>
                 {/* 轮播图 */}
                 <div className="swiper">
@@ -44,63 +44,26 @@ class Home extends React.Component {
                             </Link>
                         ))
                     }
-                    
                 </div>
-                {/* 优先购票 */}
-                {/* <div className="priority">
-                    <div className="priority-header">
-                        <div className="priority-header-left">
-                            <span>优先购票</span>
-                            <i>VIP+会员尊享权益</i>
-                        </div>
-                        <div className="priority-header-right">
-                            <i>99元/年</i>
-                            <i className="iconfont icon-dayuhao"></i>
-                        </div>
-                    </div>
-                    <div className="priority-center">
-                        <img src={this.props.priorList.pic} alt=""/>
-                            <div className="priority-center-right">
-        <div className="priority-title">{this.props.priorList.schedular_name}</div>
-                                <div className="priority-address">
-        <span>{this.props.priorList.city_name}</span>|
-        <span>{this.props.priorList.venue_name}</span>
-                                </div>
-                                <div className="priority-footer">
-                                    <div className="priority-footer-left">
-                                        <div className="date">
-                                            <span>{this.props.priorList.pre_time}</span>
-                                            
-                                            <span className="start">开始</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="remind">开售提醒</div>
-                            </div>
-                        </div>
-                    </div> */}
                 {/* 热门演出 */}
-                {(this.props.hots_show_list.length>0)?
-                    <div className="hotShow">
-                        <div className="hotShow-title">
-                            <span>热门演出</span>
-                            <i className="iconfont icon-dayuhao"></i>
-                        </div>
-                        <div id="abc">
-                        <div className="hotShow-center" >
-                            {
-                                this.props.hots_show_list.map(v=>(
-                                    <div className="hotShow-context" key={v.schedular_url}>
-                                        <img src={v.pic} alt=""/>
-                                        <div className="hotShow-headline">{v.show_name}</div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        </div>
-                    </div>:null
-                }
-                
+                <div className="hotShow">
+                    <div className="hotShow-title">
+                        <span>热门演出</span>
+                        <i className="iconfont icon-dayuhao"></i>
+                    </div>
+                    <div id="abc">
+                    <div className="hotShow-center" >
+                        {
+                            this.props.hots_show_list.map(v=>(
+                                <div className="hotShow-context" key={v.schedular_url}>
+                                    <img src={v.pic} alt=""/>
+                                    <div className="hotShow-headline">{v.show_name}</div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                    </div>
+                </div>
                 {/* 巡回演出 */}
                 <div className="tourShow">
                     <div className="tourShow-title">
@@ -183,8 +146,8 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                {/* 演出类型 */}
-                {(this.props.showTypeList.length>0)?
+                 {/* 演出类型 */}
+                 {(this.props.showTypeList.length>0)?
                     <div>{
                         this.props.showTypeList.map((v,i)=>(
                             (v.list.length>0)?
@@ -213,7 +176,7 @@ class Home extends React.Component {
                                 }
                             </div>
                             {
-                                console.log(v.list.shift())
+                                // console.log(v.list.shift())
                             }
                             <div className="show-context">{
                                 v.list.map((a,k)=>(
@@ -232,28 +195,52 @@ class Home extends React.Component {
                         }
                     </div>:null  
                 }
-                
+                {/* 为你推荐 */}
+                <div className="recommend">
+                    <div className="recommend-header">为你推荐</div>
+                    <div className='context'>
+                        {
+                            this.props.list.map((v,i)=>{
+                            return <div key={i}>
+                                < img src={v.pic} alt='' />
+                                <div>
+                                    {
+                                        v.show_time_bottom?<h3>
+                                        {v.start_show_time}
+                                        <span>{v.show_time_bottom}</span>
+                                        </h3>:<h3>2019.{v.show_time_top}</h3>
+                                    }
+                                <h2>{v.name}</h2>
+                                <h5>
+                                <span>{v.city_name}</span> | <span>{v.venue_name}</span>
+                                </h5>
+                                <h4>￥{v.min_price}<span>起</span></h4>
+                                </div>
+                                </div>
+                            })
+                        } 
+                    </div>
+                </div>
             </div>
         )
     }
     componentDidMount(){
-        saveCity(this)
         this.props.getPriority.call(this,city_id);
         this.props.getHostShow.call(this,city_id);
         this.props.getTourList.call(this,city_id);
         this.props.getVipDiscount.call(this,city_id);
         this.props.getShowTypeList.call(this,city_id); 
         this.props.getPicNav.call(this,city_id);
+        this.props.getShowList.call(this,city_id);
         // if(this.props.location.state !== undefined){
         //     this.setState({
         //         city:this.props.location.state.city
         //     })
         // }
-        
+        saveCity(this)
     }
 }
 function mapStateToProps({home}){
-    console.log(home.showTypeList)
     return{
         referer:home.referer,
         version:home.version,
@@ -266,16 +253,18 @@ function mapStateToProps({home}){
         showTypeList:home.showTypeList,
         city:home.city,
         classify_list:home.classify_list,
-    }   
+        list:home.list,
+    } 
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
-let city_id = 0
+let city_id=0;
 function saveCity(that){
     if(that.props.location.state !== undefined && that.props.location.state !== null){
         localStorage.city = that.props.location.state.city;
-        localStorage.city_id = city_id = that.props.location.state.city_id;
+        localStorage.city_id=city_id=that.props.location.state.city_id
+
     } 
 }

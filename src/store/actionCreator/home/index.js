@@ -34,6 +34,10 @@ export const getPicNav=payload=>(
         payload
     }
 )
+export const getShowList=payload=>({
+    type:"GET_SHOWLIST",
+    payload,
+})
 export default{
     getPriority(city_id=0){
         return(dispatch)=>{
@@ -59,8 +63,8 @@ export default{
                     referer:2,
                 }
             }).then(({data})=>{
-                const {hots_show_list,version,referer}=data.data;
-                dispatch(getHostShow({hots_show_list,version,referer}))
+                const {hots_show_list}=data.data;
+                dispatch(getHostShow({hots_show_list}))
             })
         }
     },
@@ -118,6 +122,22 @@ export default{
             }).then(({data})=>{
                 const {classify_list}=data.data;
                 dispatch(getPicNav({classify_list}))
+            })
+        }
+    },
+    getShowList(){
+        return(dispatch)=>{
+            this.$axios.get("/n/Show/Search/getShowList",{
+                params:{
+                    city_id:0,
+                    page:1,
+                    version:"6.0.8",
+                    referer:2
+                }
+            }).then(({data})=>{
+                const {list}=data.data;
+                console.log(66,list);
+                dispatch(getShowList({list}));
             })
         }
     }

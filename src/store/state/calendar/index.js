@@ -4,4 +4,6 @@ export default{
     calendar:[],
     show_category_list:[],
     list:[],
+    active_id:0,
+    active_day:0,
 }

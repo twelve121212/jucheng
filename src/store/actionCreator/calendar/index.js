@@ -48,7 +48,8 @@ export default{
             })
         }
     },
-    getShowList(category=0,start_time="2019%2F12%2F1"){
+    getShowList(category=0,start_time){
+        console.log(category,start_time)
         return(dispatch)=>{
             this.$axios.get("/n/Show/Search/getShowList",{
                 params:{
