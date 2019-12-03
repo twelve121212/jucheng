@@ -121,6 +121,17 @@ module.exports.deleteOneById = async function (collName,id) {
         })
     })
 }
+module.exports.removeAll = async function (collName) {
+    const db = await _connect();
+    return new  Promise((resolve,reject)=>{
+        db.collection(collName).remove({},function (err,results) {
+            if(err)
+                reject(err);
+            else
+                resolve(results);
+        })
+    })
+}
 // count("contextList").then(num=>{
 //     console.log(num)
 // })
