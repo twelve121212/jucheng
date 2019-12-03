@@ -44,41 +44,7 @@ class Home extends React.Component {
                             </Link>
                         ))
                     }
-                    
                 </div>
-                {/* 优先购票 */}
-                {/* <div className="priority">
-                    <div className="priority-header">
-                        <div className="priority-header-left">
-                            <span>优先购票</span>
-                            <i>VIP+会员尊享权益</i>
-                        </div>
-                        <div className="priority-header-right">
-                            <i>99元/年</i>
-                            <i className="iconfont icon-dayuhao"></i>
-                        </div>
-                    </div>
-                    <div className="priority-center">
-                        <img src={this.props.priorList.pic} alt=""/>
-                            <div className="priority-center-right">
-        <div className="priority-title">{this.props.priorList.schedular_name}</div>
-                                <div className="priority-address">
-        <span>{this.props.priorList.city_name}</span>|
-        <span>{this.props.priorList.venue_name}</span>
-                                </div>
-                                <div className="priority-footer">
-                                    <div className="priority-footer-left">
-                                        <div className="date">
-                                            <span>{this.props.priorList.pre_time}</span>
-                                            
-                                            <span className="start">开始</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="remind">开售提醒</div>
-                            </div>
-                        </div>
-                    </div> */}
                 {/* 热门演出 */}
                 <div className="hotShow">
                     <div className="hotShow-title">
@@ -180,56 +146,92 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                {/* 演出类型 */}
-                <div>{
-                this.props.showTypeList.map((v,i)=>(
-                    <div className="show" key={i}>
-                    <div className="show-title">
-                        <span>{v.title}</span>
-                        <i className="iconfont icon-dayuhao"></i>
-                    </div>
-                    <div className="show-center">
-                        <div className="show-center-left">
-                            <img src={v.list[0].pic}/>
-                        </div>
-                        <div className="show-center-right">
-                            <div className="show-date">
-                                <span>2019/{v.list[0].date}</span>
-                                <i>{v.list[0].week}</i>
+                 {/* 演出类型 */}
+                 {(this.props.showTypeList.length>0)?
+                    <div>{
+                        this.props.showTypeList.map((v,i)=>(
+                            (v.list.length>0)?
+                            <div className="show" key={i}>
+                            <div className="show-title">
+                                <span>{v.title}</span>
+                                <i className="iconfont icon-dayuhao"></i>
                             </div>
-                            <div className="show-headline">{v.list[0].schedular_name}</div>
-                            <div className="show-address">{v.list[0].city_name} | {v.list[0].venue_name}</div>
-                        </div>
-                    </div>
-                    {
-                        // console.log(v.list.shift())
-                    }
-                    <div className="show-context">{
-                    v.list.map((a,k)=>(
-                        <div className="show-context-one" key={k}>
-                            <img src={a.pic} alt=""/>
-                            <div className="show-context-title">{a.schedular_name}</div>
-                            <div className="show-context-price">
-                                <span>¥{a.low_price}</span>
-                                <i>起</i>
+                            <div className="show-center">
+                                
+                                {/* {console.log(v.list[0])} */}
+                                {(v.list.length>0)?
+                                <div className="show-center">
+                                    <div className="show-center-left">
+                                        <img src={v.list[0].pic}/>
+                                    </div>
+                                    <div className="show-center-right">
+                                        <div className="show-date">
+                                            <span>2019/{v.list[0].date}</span>
+                                            <i>{v.list[0].week}</i>
+                                        </div>
+                                        <div className="show-headline">{v.list[0].schedular_name}</div>
+                                        <div className="show-address">{v.list[0].city_name} | {v.list[0].venue_name}</div>
+                                    </div>
+                                </div>:null
+                                }
                             </div>
-                        </div> 
-                    ))
-                    }</div>
-                </div>
-                ))
+                            {
+                                // console.log(v.list.shift())
+                            }
+                            <div className="show-context">{
+                                v.list.map((a,k)=>(
+                                    <div className="show-context-one" key={k}>
+                                        <img src={a.pic} alt=""/>
+                                        <div className="show-context-title">{a.schedular_name}</div>
+                                        <div className="show-context-price">
+                                            <span>¥{a.low_price}</span>
+                                            <i>起</i>
+                                        </div>
+                                    </div> 
+                                ))
+                                }</div>
+                        </div>:null
+                        ))
+                        }
+                    </div>:null  
                 }
-                </div>    
+                {/* 为你推荐 */}
+                <div className="recommend">
+                    <div className="recommend-header">为你推荐</div>
+                    <div className='context'>
+                        {
+                            this.props.list.map((v,i)=>{
+                            return <div key={i}>
+                                < img src={v.pic} alt='' />
+                                <div>
+                                    {
+                                        v.show_time_bottom?<h3>
+                                        {v.start_show_time}
+                                        <span>{v.show_time_bottom}</span>
+                                        </h3>:<h3>2019.{v.show_time_top}</h3>
+                                    }
+                                <h2>{v.name}</h2>
+                                <h5>
+                                <span>{v.city_name}</span> | <span>{v.venue_name}</span>
+                                </h5>
+                                <h4>￥{v.min_price}<span>起</span></h4>
+                                </div>
+                                </div>
+                            })
+                        } 
+                    </div>
+                </div>
             </div>
         )
     }
     componentDidMount(){
-        this.props.getPriority.call(this);
-        this.props.getHostShow.call(this);
-        this.props.getTourList.call(this);
-        this.props.getVipDiscount.call(this);
-        this.props.getShowTypeList.call(this); 
-        this.props.getPicNav.call(this);
+        this.props.getPriority.call(this,city_id);
+        this.props.getHostShow.call(this,city_id);
+        this.props.getTourList.call(this,city_id);
+        this.props.getVipDiscount.call(this,city_id);
+        this.props.getShowTypeList.call(this,city_id); 
+        this.props.getPicNav.call(this,city_id);
+        this.props.getShowList.call(this,city_id);
         // if(this.props.location.state !== undefined){
         //     this.setState({
         //         city:this.props.location.state.city
@@ -239,7 +241,6 @@ class Home extends React.Component {
     }
 }
 function mapStateToProps({home}){
-    console.log(home)
     return{
         referer:home.referer,
         version:home.version,
@@ -252,14 +253,18 @@ function mapStateToProps({home}){
         showTypeList:home.showTypeList,
         city:home.city,
         classify_list:home.classify_list,
-    }   
+        list:home.list,
+    } 
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(homeCreactor,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+let city_id=0;
 function saveCity(that){
     if(that.props.location.state !== undefined && that.props.location.state !== null){
-        localStorage.city = that.props.location.state.city
+        localStorage.city = that.props.location.state.city;
+        localStorage.city_id=city_id=that.props.location.state.city_id
+
     } 
 }

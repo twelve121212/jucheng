@@ -37,7 +37,7 @@ class CityChose extends React.Component{
                                 <div className="citys_name">
                                     {
                                         this.props.hot_city_List.map(v=>(   
-                                            <Link to={{pathname:"/",state:{city:v.name}}}className="city_name" key={v.id}>{v.name}</Link>
+                                            <Link to={{pathname:"/",state:{city:v.name,city_id:v.id}}}className="city_name" key={v.id}>{v.name}</Link>
                                         ))
                                     }
                                 </div>
@@ -53,7 +53,7 @@ class CityChose extends React.Component{
                                     <ul>
                                         {
                                             v.list.map(value=>(
-                                                <Link key={value.id} to={{pathname:"/",state:{city:value.name}}}>
+                                                <Link key={value.id} to={{pathname:"/",state:{city:value.name,city_id:value.id}}}>
                                                     <li>{value.name}</li>
                                                 </Link> 
                                             ))
@@ -74,7 +74,7 @@ class CityChose extends React.Component{
     }
 }
 function mapStateToProps({citychose}){
-    // console.log(11111222222,citychose.gpsCity)
+    // console.log(11111222222,citychose)
     return{
         version:citychose.version,
         referer:citychose.referer,

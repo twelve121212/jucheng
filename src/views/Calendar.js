@@ -18,12 +18,12 @@ class Calendar extends React.Component{
                 <div className="nav">
                     <div id="wrapper">
                         <ul>
-                            <li key={0} onClick={
+                            <li key={0} className={this.props.active_id===0?'active':''}  onClick={
                                 this.props.getShowList.bind(this,0,"2019%2F12%2F1")
                             }>全部</li>
                             {
                                 this.props.show_category_list.map(v=>(
-                                    <li key={v.category_id} onClick={
+                                    <li key={v.category_id} className={(this.props.active_id===v.category_id)?'active':''} onClick={
                                         this.props.getShowList.bind(this,v.category_id,"2019%2F12%2F1")
                                     }>{v.name}</li>
                                 ))
@@ -57,12 +57,11 @@ class Calendar extends React.Component{
                     </div>
                     <div className="calendar-day">{
                         this.props.calendar.map((v,i)=>(
-                            <span key={i}>{v.day}</span>
+                            <span key={i} className={(this.props.active_day===v.date)?'active':''} onClick={
+                                this.props.getShowList.bind(this,0,v.date)
+                            }>{v.day}</span>
                         ))
                     }
-                     {/* onClick={
-                                 this.props.getShowList.bind(this,v.date)
-                            } */}
                     {
                         console.log(this.props.calendar)
                     }
@@ -108,6 +107,8 @@ function mapStateToProps({calendar}){
         show_category_list:calendar.show_category_list,
         list:calendar.list,
         category:calendar.category,
+        active_id:calendar.active_id,
+        active_day:calendar.active_day,
     }
 }
 function mapDispatchToProps(dispatch){

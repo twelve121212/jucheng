@@ -109,8 +109,9 @@
             height:58px;
             margin:20px;
         }
-        .span-active{
-            background-color: red;
+        .active{
+            background-color: orange;
+            border-radius: 50%;
         }
     }
 }

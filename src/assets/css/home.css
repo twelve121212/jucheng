@@ -321,11 +321,11 @@
       color: #fff;
       text-align: left; }
       #home .show .show-center .show-center-right .show-date {
-        padding-top: 32px; }
+        padding-top: 12px; }
         #home .show .show-center .show-center-right .show-date span {
           font-size: 32px;
           font-weight: 700;
-          line-height: 50px;
+          line-height: 100px;
           margin-right: 8px; }
         #home .show .show-center .show-center-right .show-date i {
           font-size: 24px;
@@ -333,7 +333,7 @@
           line-height: 100px; }
       #home .show .show-center .show-center-right .show-headline {
         font-size: 32px;
-        line-height: 50px;
+        line-height: 40px;
         font-weight: 700;
         overflow: hidden;
         text-align: left;
@@ -343,7 +343,7 @@
         -webkit-line-clamp: 2; }
       #home .show .show-center .show-center-right .show-address {
         font-size: 24px;
-        line-height: 100px;
+        line-height: 50px;
         text-align: left;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -380,5 +380,59 @@
         font-style: normal;
         font-size: 24px;
         color: #888; }
+#home .recommend .recommend-header {
+  display: flex;
+  justify-content: start;
+  font-size: 40px;
+  height: 60px;
+  margin-top: 80px;
+  font-weight: 700;
+  margin-left: 30px; }
+#home .recommend .context {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0 30px; }
+  #home .recommend .context > div {
+    min-height: 290px;
+    margin: 5px 0 60px 0; }
+    #home .recommend .context > div img {
+      float: left;
+      width: 210.1px;
+      height: 286.15px;
+      border-radius: 10px; }
+    #home .recommend .context > div div {
+      float: right;
+      width: 446.3px;
+      height: 280.15px;
+      text-align: left; }
+      #home .recommend .context > div div h3 {
+        font-size: 34px;
+        line-height: 80px;
+        font-weight: bold;
+        color: #232323; }
+        #home .recommend .context > div div h3 span {
+          font-size: 26px;
+          padding-left: 10px;
+          color: #666; }
+      #home .recommend .context > div div h2 {
+        font-weight: bold;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 40px;
+        font-size: 34px;
+        color: #232323; }
+      #home .recommend .context > div div h5 {
+        font-size: 26px;
+        color: #666;
+        line-height: 80px; }
+      #home .recommend .context > div div h4 {
+        font-size: 36px;
+        color: #ff6743; }
+        #home .recommend .context > div div h4 span {
+          font-size: 26px;
+          color: #ccc; }
 
 /*# sourceMappingURL=home.css.map */

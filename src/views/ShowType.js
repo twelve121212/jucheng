@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import showtypeCreator from "../store/actionCreator/showtype";
 import '../assets/css/reset.css';
 import '../assets/html/zhouyimin/z-css/ShowType.css';
-import i_ticket_empty from '../assets/html/zhouyimin/z-images/ticket_empty.png'; 
 class ShowType extends React.Component{
     render(){
         return (
@@ -22,7 +21,7 @@ class ShowType extends React.Component{
                                 <li key={0} className={this.props.active_id===0?'active':''} onClick={this.props.getShowList.bind(this,this.props.location.query.cid,0)}>全部</li>
                                 {
                                     this.props.show_category_list.map(v=>(
-                                        <li key={v.category_id} className={(this.props.active_id===v.category_id)?'active':''} onClick={this.props.getShowList.bind(this,this.props.location.query.cid,v.category_id)}>{v.name}</li>
+                                        <li key={v.category_id} className={this.props.active_id===v.category_id?'active':''} onClick={this.props.getShowList.bind(this,this.props.location.query.cid,v.category_id)}>{v.name}</li>
                                     ))
                                 }
                             </ul>
@@ -45,7 +44,7 @@ class ShowType extends React.Component{
                             this.props.list.map(v=>{
                                 return <div>
                                     <img src={v.pic} alt='' />
-                                    <div>
+                                    <div onClick={()=>this.props.history.push({pathname:'/showdetail',query:{schedular_id:v.schedular_id}})}>
                                         {
                                             v.show_time_bottom?<h3>
                                                 {v.start_show_time}

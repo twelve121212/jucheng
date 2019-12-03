@@ -8,7 +8,9 @@ export default(state=stateInit,{type,payload})=>{
     }else if(type==="GET_CATEGORY"){
         state.show_category_list=payload.show_category_list;
     }else if(type==="GET_SHOWLIST"){
-        state.list=payload.list
+        state.list=payload.list;
+        state.active_id = payload.category;
+        state.active_day=payload.start_time;
     }
     return state;
 }
