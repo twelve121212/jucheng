@@ -2,6 +2,7 @@ import React from "react";
 import{
     bindActionCreators
 }from "redux";
+// import Slide from "./Slide";
 import homeCreactor from "../store/actionCreator/home";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom"
@@ -10,6 +11,8 @@ import '../assets/iconfont/iconfont.css';
 import "../assets/css/home.css"
 import lunbo from "../assets/Y_images/lunbo.jpg"
 import fenxiang from "../assets/Y_images/fenxiang.png"
+import Swiper from 'swiper/js/swiper.js' 
+import 'swiper/css/swiper.css'  
 class Home extends React.Component {
     render() {
         return (
@@ -32,8 +35,20 @@ class Home extends React.Component {
                 </div>
                 {/* 轮播图 */}
                 <div className="swiper">
-                    <img src={lunbo} alt="" />
+                    <div className="swiper-container">
+                        <div className="swiper-wrapper" >
+                            {
+                                this.props.slide_list.map(v=>(
+                                    <div className="swiper-slide">
+                                        <img src={v.image_url} alt=""/>
+                                    </div>
+                                    ))
+                            }
+                        </div>
+                        <div className="swiper-pagination"></div>
+                    </div>
                 </div>
+
                 {/* 图形中部导航 */}
                 <div className="picNav">
                     {
@@ -55,10 +70,10 @@ class Home extends React.Component {
                     <div className="hotShow-center" >
                         {
                             this.props.hots_show_list.map(v=>(
-                                <div className="hotShow-context" key={v.schedular_url}>
+                                <Link className="hotShow-context" key={v.schedular_url} to={{pathname:'/showdetail',state:{schedular_id:v.schedular_id,cid:0}}}>
                                     <img src={v.pic} alt=""/>
                                     <div className="hotShow-headline">{v.show_name}</div>
-                                </div>
+                                </Link>
                             ))
                         }
                     </div>
@@ -180,14 +195,14 @@ class Home extends React.Component {
                             }
                             <div className="show-context">{
                                 v.list.map((a,k)=>(
-                                    <div className="show-context-one" key={k}>
+                                    <Link className="show-context-one" key={k} to={{pathname:'/showdetail',state:{schedular_id:a.sche_id,cid:0}}}>
                                         <img src={a.pic} alt=""/>
                                         <div className="show-context-title">{a.schedular_name}</div>
                                         <div className="show-context-price">
                                             <span>¥{a.low_price}</span>
                                             <i>起</i>
                                         </div>
-                                    </div> 
+                                    </Link> 
                                 ))
                                 }</div>
                         </div>:null
@@ -201,7 +216,8 @@ class Home extends React.Component {
                     <div className='context'>
                         {
                             this.props.list.map((v,i)=>{
-                            return <div key={i}>
+                            return <div key={i} >
+                                    <Link to={{pathname:'/showdetail',state:{schedular_id:v.schedular_id,cid:0}}}>
                                 < img src={v.pic} alt='' />
                                 <div>
                                     {
@@ -216,6 +232,7 @@ class Home extends React.Component {
                                 </h5>
                                 <h4>￥{v.min_price}<span>起</span></h4>
                                 </div>
+                                </Link>
                                 </div>
                             })
                         } 
@@ -238,10 +255,27 @@ class Home extends React.Component {
         //         city:this.props.location.state.city
         //     })
         // }
-        
+        new Swiper('.swiper-container',{
+            loop:true,
+            pagination:{
+                el:'.swiper-pagination',
+                clickable: true, 
+            },
+            autoplay:{      //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
+                delay: 2000,
+                disableOnInteraction:false,    //户操作swiper之后，是否禁止autoplay。默认为true：停止。
+            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+            observer:true,
+            // observerParents:true,
+            });
     }
 }
 function mapStateToProps({home}){
+    console.log(home.showTypeList)
     return{
         referer:home.referer,
         version:home.version,
@@ -254,6 +288,7 @@ function mapStateToProps({home}){
         showTypeList:home.showTypeList,
         city:home.city,
         classify_list:home.classify_list,
+        slide_list:home.slide_list,
         list:home.list,
     } 
 }
@@ -266,6 +301,5 @@ function saveCity(that){
     if(that.props.location.state !== undefined && that.props.location.state !== null){
         localStorage.city = that.props.location.state.city;
         localStorage.city_id=city_id=that.props.location.state.city_id
-
     } 
 }

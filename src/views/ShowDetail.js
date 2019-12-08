@@ -13,21 +13,21 @@ class ShowType extends React.Component{
                     <div className='introduce'>
                         <header>
                             <span>演出详情</span>
-                            <Link className="iconfont icon-dayuhao1" to={'/'}></Link>
+                            <Link className="iconfont icon-dayuhao1" to={{pathname:'/showtype',query:{cid:this.props.location.state.cid}}}></Link>
                             <i className="iconfont icon-sandian"></i>
                         </header>
                         <img src={this.props.share_data.share_pic} alt='' />
                         <div>
                             <h2>{this.props.share_data.share_title}</h2>
-                            <h4>￥{this.props.static_data.low_price} - {this.props.static_data.high_price}</h4>
+                            <h4>￥{this.props.static_data.price_range}</h4>
                         </div>
                     </div>
                     <div className='address'>
                         {console.log(this.props.item_list,this.props.static_data,this.props.share_data)}
-                        <h3>{this.props.item_list.project_time}</h3>
-                        <h4>{this.props.static_data.city_name}|{this.props.static_data.venue_name}</h4>
-                        <h5>{this.props.static_data.venue_address}</h5>
-                        <div><i className="iconfont icon-dingwei"></i></div>
+                        <h3>{this.props.show_time_data.show_time_start_display} - {this.props.show_time_data.show_time_end_display}</h3>
+                        <h4>{this.props.city.city_name} | {this.props.venue.venue_name}</h4>
+                        <h5>{this.props.venue.venue_address}</h5>
+                        <div><Link  to={{pathname:"/map",state:{city_name:this.props.city.city_name,venue_name:this.props.venue.venue_name,venue_address:this.props.venue.venue_address}}}><i className="iconfont icon-dingwei"></i></Link></div>
                     </div>
                     <div className='warn'>
                         <h2> <span>温馨提醒</span> <i className='iconfont icon-dayuhao'></i></h2>
@@ -56,17 +56,24 @@ class ShowType extends React.Component{
         )
     }
     componentDidMount(){
-        this.props.getShowDetailList.call(this,this.props.location.query.schedular_id);
+        this.props.getShowDetailList.call(this,this.props.location.state.schedular_id);
     }
 }
 function mapStateToProps({showdetail}){
+    console.log(11111111111,showdetail.static_data.city)
     return {
         item_list:showdetail.item_list,
         share_data:showdetail.share_data,
-        static_data:showdetail.static_data
+        static_data:showdetail.static_data,
+        show_time_data:showdetail.show_time_data,
+        city:showdetail.city,
+        venue:showdetail.venue,
     }
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators(showdetailCreator,dispatch)
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ShowType);
+function goback(){
+    this.props.history.go(-1)
+}

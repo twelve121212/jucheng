@@ -14,11 +14,11 @@ export default{
                     referer:2,
                 }
             }).then(({data})=>{
-                console.log(data)
+                console.log(2222222,data)
                 // console.log(3333,data.data.theatre_list)
                 const {item_list,static_data,share_data} = data.data;
-                // console.log(22222,theatre_list)
-                dispatch(upShowDetail({item_list,static_data,share_data}))
+                const{show_time_data,city,venue} = data.data.static_data
+                dispatch(upShowDetail({item_list,static_data,share_data,schedular_id,show_time_data,city,venue}))
             })
         }
     }

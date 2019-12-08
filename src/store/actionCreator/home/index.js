@@ -48,13 +48,12 @@ export default{
                     referer:2,
                 }
             }).then(({data})=>{
-                const {priorList,version,referer}=data.data;
-                dispatch(getPriority({priorList,version,referer}))
+                const {priorList}=data.data;
+                dispatch(getPriority({priorList}))
             })
         }
     },
     getHostShow(city_id=0){
-        console.log(city_id)
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getHotsRecommendList",{
                 params:{
@@ -111,6 +110,7 @@ export default{
         }
     },
     getPicNav(city_id=0){
+        console.log(city_id)
         return(dispatch)=>{
             this.$axios.get("/n/home/index/getClassifyHome",{
                 params:{
@@ -120,8 +120,8 @@ export default{
                     referer:2,
                 }
             }).then(({data})=>{
-                const {classify_list}=data.data;
-                dispatch(getPicNav({classify_list}))
+                const {classify_list,slide_list}=data.data;
+                dispatch(getPicNav({classify_list,slide_list}))
             })
         }
     },

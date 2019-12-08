@@ -24,7 +24,7 @@ class Calendar extends React.Component{
                             {
                                 this.props.show_category_list.map(v=>(
                                     <li key={v.category_id} className={(this.props.active_id===v.category_id)?'active':''} onClick={
-                                        this.props.getShowList.bind(this,v.category_id,"2019/12/2",1,0)
+                                        this.props.getShowList.bind(this,v.category_id,this.props.active_day)
                                     }>{v.name}</li>
                                 ))
                             }
@@ -58,7 +58,7 @@ class Calendar extends React.Component{
                     <div className="calendar-day">{
                         this.props.calendar.map((v,i)=>(
                             <span key={i} className={(this.props.active_day===v.date)?'active':''} onClick={
-                                this.props.getShowList.bind(this,"",v.date,0,1)
+                                this.props.getShowList.bind(this,this.props.active_id,v.date)
                             }>{v.day}</span>
                         ))
                     }

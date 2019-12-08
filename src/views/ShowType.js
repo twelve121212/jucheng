@@ -15,7 +15,7 @@ class ShowType extends React.Component{
                         <Link className="iconfont icon-dayuhao1" to={'/'}></Link>
                         <i className="iconfont icon-sandian"></i>
                     </header>
-                    <div className='nav' >
+                    <div className='nav'>
                         <div id="wrapper">
                             <ul>
                                 <li key={0} className={this.props.active_id===0?'active':''} onClick={this.props.getShowList.bind(this,this.props.location.query.cid,0)}>全部</li>
@@ -44,20 +44,22 @@ class ShowType extends React.Component{
                             this.props.list.map(v=>{
                                 return <div>
                                     <img src={v.pic} alt='' />
-                                    <div onClick={()=>this.props.history.push({pathname:'/showdetail',query:{schedular_id:v.schedular_id}})}>
-                                        {
-                                            v.show_time_bottom?<h3>
-                                                {v.start_show_time}
-                                                <span>{v.show_time_bottom}</span>
-                                            </h3>:<h3>2019.{v.show_time_top}</h3>
-                                        }
-                                        
-                                        <h2>{v.name}</h2>
-                                        <h5>
-                                            <span>{v.city_name}</span> | <span>{v.venue_name}</span>
-                                        </h5>
-                                        <h4>￥{v.min_price}<span>起</span></h4>
-                                    </div>
+                                    <Link to={{pathname:'/showdetail',state:{schedular_id:v.schedular_id,cid:0}}}>
+                                        <div>
+                                            {
+                                                v.show_time_bottom?<h3>
+                                                    {v.start_show_time}
+                                                    <span>{v.show_time_bottom}</span>
+                                                </h3>:<h3>2019.{v.show_time_top}</h3>
+                                            }
+                                            
+                                            <h2>{v.name}</h2>
+                                            <h5>
+                                                <span>{v.city_name}</span> | <span>{v.venue_name}</span>
+                                            </h5>
+                                            <h4>￥{v.min_price}<span>起</span></h4>
+                                        </div>
+                                    </Link>
                                 </div>
                             })
                         }
